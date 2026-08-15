@@ -11,7 +11,7 @@ export default function Hero() {
       icon: Code2,
       color: 'text-accentPrimary',
       bgColor: 'bg-accentPrimary/15',
-      pos: 'top-6 left-6 lg:left-12 hidden md:flex',
+      pos: 'top-10 -left-6 sm:-left-10 md:-left-14 lg:-left-20',
       delay: 0.2,
     },
     {
@@ -20,17 +20,8 @@ export default function Hero() {
       icon: Activity,
       color: 'text-success',
       bgColor: 'bg-success/15',
-      pos: 'top-16 right-6 md:right-12 lg:right-72 hidden md:flex',
+      pos: 'top-4 right-0 md:right-4 lg:right-8',
       delay: 0.35,
-    },
-    {
-      name: 'Apple HIG Design',
-      desc: 'Fluid & Intuitive',
-      icon: Sparkles,
-      color: 'text-[#7B61FF]',
-      bgColor: 'bg-[#7B61FF]/15',
-      pos: 'bottom-24 left-6 lg:left-16 hidden lg:flex',
-      delay: 0.45,
     },
     {
       name: 'TypeScript',
@@ -38,17 +29,17 @@ export default function Hero() {
       icon: Cpu,
       color: 'text-[#3AAFA9]',
       bgColor: 'bg-[#3AAFA9]/15',
-      pos: 'top-8 right-4 lg:right-16 hidden lg:flex',
+      pos: 'top-32 -left-4 sm:-left-8 md:-left-10 lg:-left-16',
       delay: 0.3,
     },
     {
-      name: 'Next.js & SSR',
-      desc: 'Production Grade',
-      icon: Globe,
-      color: 'text-textPrimary',
-      bgColor: 'bg-slate-900/10',
-      pos: 'top-1/3 right-1/4 lg:right-80 hidden xl:flex',
-      delay: 0.5,
+      name: 'Apple HIG Design',
+      desc: 'Fluid & Intuitive',
+      icon: Sparkles,
+      color: 'text-[#7B61FF]',
+      bgColor: 'bg-[#7B61FF]/15',
+      pos: 'bottom-40 -left-6 sm:-left-10 md:-left-12 lg:-left-20',
+      delay: 0.45,
     },
     {
       name: 'Tailwind CSS',
@@ -56,7 +47,7 @@ export default function Hero() {
       icon: Palette,
       color: 'text-accentSecondary',
       bgColor: 'bg-accentSecondary/15',
-      pos: 'bottom-36 right-6 lg:right-64 hidden md:flex',
+      pos: 'bottom-20 -left-4 sm:-left-8 md:-left-8 lg:-left-14',
       delay: 0.6,
     },
     {
@@ -65,7 +56,7 @@ export default function Hero() {
       icon: Zap,
       color: 'text-accentPrimary',
       bgColor: 'bg-accentPrimary/15',
-      pos: 'bottom-12 right-6 lg:right-24 hidden md:flex',
+      pos: 'bottom-8 right-0 md:right-4 lg:right-8',
       delay: 0.7,
     },
   ];
@@ -85,35 +76,7 @@ export default function Hero() {
         <div className="absolute bottom-10 left-1/3 w-[20rem] sm:w-[28rem] h-[20rem] sm:h-[28rem] bg-accentSecondary/10 rounded-full blur-[90px]"></div>
       </div>
 
-      {/* Floating Distributed Liquid Glass Badges (Visible on tablet & desktop) */}
-      <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
-        {floatingTags.map((tag) => {
-          const Icon = tag.icon;
-          return (
-            <motion.div
-              key={tag.name}
-              initial={{ y: 20, opacity: 0, scale: 0.85 }}
-              animate={{ y: [0, -6, 0], opacity: 1, scale: 1 }}
-              transition={{
-                opacity: { delay: tag.delay, duration: 0.6 },
-                scale: { delay: tag.delay, duration: 0.6 },
-                y: { repeat: Infinity, duration: 4 + tag.delay * 2, ease: 'easeInOut' }
-              }}
-              className={`absolute ${tag.pos} pointer-events-auto px-3.5 sm:px-4 py-2 rounded-2xl bg-white/85 backdrop-blur-xl border border-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.07)] items-center gap-2.5 hover:scale-105 hover:shadow-[0_12px_28px_rgba(45,168,160,0.25)] transition-all cursor-default group`}
-            >
-              <div className={`p-1.5 rounded-xl ${tag.bgColor} ${tag.color} transition-transform group-hover:scale-110`}>
-                <Icon size={16} />
-              </div>
-              <div className="flex flex-col text-left">
-                <p className="text-[11px] font-bold text-textPrimary leading-none">{tag.name}</p>
-                <p className="text-[9px] font-medium text-textSecondary mt-0.5">{tag.desc}</p>
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
-
-      {/* Main Responsive Grid Layout (Unified for Mobile, Tablet, & Desktop) */}
+      {/* Main Responsive Grid Layout */}
       <div className="w-full relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-6 lg:gap-4 items-center flex-1 min-h-[calc(100vh-106px)]">
         
         {/* Text & Copy Column */}
@@ -121,7 +84,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="md:col-span-7 flex flex-col items-start text-left pt-4 sm:pt-6 pb-2 md:py-10 pr-0 md:pr-4 lg:pr-10"
+          className="md:col-span-7 flex flex-col items-start text-left pt-4 sm:pt-6 pb-2 md:py-10 pr-0 md:pr-4 lg:pr-10 z-10"
         >
           {/* Subtle Mobile Tech Indicator */}
           <div className="flex md:hidden items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-white/90 shadow-sm mb-4">
@@ -172,15 +135,43 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Avatar Column (Significantly Enlarged for Mobile & Tablet) */}
+        {/* Right Avatar Column with Floating Badges Integrated Beside It */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="md:col-span-5 relative flex justify-center md:justify-end items-end w-full h-[65vh] sm:h-[72vh] min-h-[440px] sm:min-h-[520px] md:h-[65vh] lg:h-[calc(100vh-106px)] self-end mt-2 md:mt-0"
         >
-          {/* Avatar Image (Bold, prominent presence on mobile with natural aspect ratio grounded to bottom) */}
-          <div className="relative flex justify-center md:justify-end items-end w-full h-full">
+          {/* Floating Distributed Liquid Glass Badges Anchored Securely Around Avatar */}
+          <div className="absolute inset-0 pointer-events-none z-20 overflow-visible hidden md:block">
+            {floatingTags.map((tag) => {
+              const Icon = tag.icon;
+              return (
+                <motion.div
+                  key={tag.name}
+                  initial={{ y: 15, opacity: 0, scale: 0.85 }}
+                  animate={{ y: [0, -5, 0], opacity: 1, scale: 1 }}
+                  transition={{
+                    opacity: { delay: tag.delay, duration: 0.5 },
+                    scale: { delay: tag.delay, duration: 0.5 },
+                    y: { repeat: Infinity, duration: 4 + tag.delay * 2, ease: 'easeInOut' }
+                  }}
+                  className={`absolute ${tag.pos} pointer-events-auto px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-2xl bg-white/90 backdrop-blur-xl border border-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex items-center gap-2 hover:scale-105 hover:shadow-[0_12px_28px_rgba(45,168,160,0.25)] transition-all cursor-default group whitespace-nowrap`}
+                >
+                  <div className={`p-1.5 rounded-xl ${tag.bgColor} ${tag.color} transition-transform group-hover:scale-110`}>
+                    <Icon size={15} />
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <p className="text-[11px] font-bold text-textPrimary leading-none">{tag.name}</p>
+                    <p className="text-[9px] font-medium text-textSecondary mt-0.5">{tag.desc}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Avatar Image */}
+          <div className="relative flex justify-center md:justify-end items-end w-full h-full z-10">
             <img
               src="/assets/hero-avatar.png"
               alt="Ahmed Elazap - Full Body Portrait"
