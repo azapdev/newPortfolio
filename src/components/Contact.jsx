@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { Mail, Send, CheckCircle2, MessageSquare, Sparkles } from 'lucide-react';
+import { Mail, Phone, Send, CheckCircle2, Sparkles } from 'lucide-react';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', message: '' });
     }, 4000);
   };
 
@@ -22,7 +22,7 @@ export default function Contact() {
         <div className="bg-white/85 backdrop-blur-2xl rounded-[2.5rem] p-8 sm:p-14 lg:p-16 border border-white/90 shadow-[0_12px_40px_rgba(0,0,0,0.04)] grid lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Info Column */}
-          <div className="lg:col-span-5 flex flex-col justify-between">
+          <div className="lg:col-span-5 flex flex-col justify-between h-full">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accentPrimary/10 text-accentPrimary font-semibold text-xs uppercase tracking-wider mb-4">
                 <Sparkles size={14} />
@@ -36,27 +36,37 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 p-4 rounded-2xl bg-bgAlt/80 border border-borderLight/60">
-                <div className="p-3 rounded-xl bg-accentPrimary/10 text-accentPrimary">
+            {/* Contact Details Cards */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
+              {/* Email Card */}
+              <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-bgAlt/80 border border-borderLight/60 hover:border-accentPrimary/40 transition-colors">
+                <div className="p-3 rounded-xl bg-accentPrimary/10 text-accentPrimary flex items-center justify-center">
                   <Mail size={20} />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-textSecondary uppercase">Direct Email</p>
+                  <p className="text-xs font-semibold text-textSecondary uppercase tracking-wider">Direct Email</p>
                   <a href="mailto:ahmedelazap@example.com" className="text-sm font-bold text-textPrimary hover:text-accentPrimary transition-colors">
                     ahmedelazap@example.com
                   </a>
                 </div>
               </div>
 
-              <div className="inline-flex items-center gap-2.5 px-4 py-2.5 bg-success/10 text-success font-semibold rounded-2xl text-xs sm:text-sm border border-success/20">
-                <span className="w-2.5 h-2.5 rounded-full bg-success animate-pulse"></span>
-                <span>Available for Full-Time & Contract Roles</span>
+              {/* Phone Card */}
+              <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-bgAlt/80 border border-borderLight/60 hover:border-accentPrimary/40 transition-colors">
+                <div className="p-3 rounded-xl bg-[#7B61FF]/10 text-[#7B61FF] flex items-center justify-center">
+                  <Phone size={20} />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-textSecondary uppercase tracking-wider">Phone & WhatsApp</p>
+                  <a href="tel:+201000000000" className="text-sm font-bold text-textPrimary hover:text-accentPrimary transition-colors">
+                    +20 100 000 0000
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Form Column */}
+          {/* Right Form Column with Floating Margin Label Inputs */}
           <div className="lg:col-span-7 bg-bgAlt/60 backdrop-blur-xl p-8 sm:p-10 rounded-3xl border border-white/80 shadow-inner">
             {submitted ? (
               <div className="py-12 flex flex-col items-center justify-center text-center animate-in fade-in zoom-in duration-300">
@@ -69,53 +79,66 @@ export default function Contact() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                <div>
-                  <label htmlFor="contact-name" className="block text-xs font-bold text-textPrimary uppercase tracking-wider mb-2">
-                    Your Name
-                  </label>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                
+                {/* Modern Floating Label: Name */}
+                <div className="relative">
                   <input
                     id="contact-name"
                     name="name"
                     type="text"
                     required
+                    placeholder=" "
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Sarah Jenkins"
-                    className="w-full px-5 py-3.5 rounded-2xl border border-borderLight bg-white/90 text-textPrimary placeholder:text-textSecondary/60 focus:outline-none focus:border-accentPrimary focus:ring-2 focus:ring-accentPrimary/20 transition-all font-medium text-sm"
+                    className="peer w-full px-5 pt-6 pb-2 rounded-2xl border border-borderLight bg-white/95 text-textPrimary placeholder-transparent focus:outline-none focus:border-accentPrimary focus:ring-2 focus:ring-accentPrimary/20 transition-all font-medium text-sm"
                   />
+                  <label
+                    htmlFor="contact-name"
+                    className="absolute left-5 top-4 text-xs font-semibold text-textSecondary uppercase tracking-wider transition-all duration-200 pointer-events-none peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-textSecondary/60 peer-placeholder-shown:normal-case peer-placeholder-shown:font-medium peer-focus:top-1.5 peer-focus:text-[10px] peer-focus:font-bold peer-focus:text-accentPrimary peer-focus:uppercase peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:text-accentPrimary peer-[:not(:placeholder-shown)]:uppercase"
+                  >
+                    Your Name
+                  </label>
                 </div>
 
-                <div>
-                  <label htmlFor="contact-email" className="block text-xs font-bold text-textPrimary uppercase tracking-wider mb-2">
-                    Email Address
-                  </label>
+                {/* Modern Floating Label: Email */}
+                <div className="relative">
                   <input
                     id="contact-email"
                     name="email"
                     type="email"
                     required
+                    placeholder=" "
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="e.g. sarah@company.com"
-                    className="w-full px-5 py-3.5 rounded-2xl border border-borderLight bg-white/90 text-textPrimary placeholder:text-textSecondary/60 focus:outline-none focus:border-accentPrimary focus:ring-2 focus:ring-accentPrimary/20 transition-all font-medium text-sm"
+                    className="peer w-full px-5 pt-6 pb-2 rounded-2xl border border-borderLight bg-white/95 text-textPrimary placeholder-transparent focus:outline-none focus:border-accentPrimary focus:ring-2 focus:ring-accentPrimary/20 transition-all font-medium text-sm"
                   />
+                  <label
+                    htmlFor="contact-email"
+                    className="absolute left-5 top-4 text-xs font-semibold text-textSecondary uppercase tracking-wider transition-all duration-200 pointer-events-none peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-textSecondary/60 peer-placeholder-shown:normal-case peer-placeholder-shown:font-medium peer-focus:top-1.5 peer-focus:text-[10px] peer-focus:font-bold peer-focus:text-accentPrimary peer-focus:uppercase peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:text-accentPrimary peer-[:not(:placeholder-shown)]:uppercase"
+                  >
+                    Email Address
+                  </label>
                 </div>
 
-                <div>
-                  <label htmlFor="contact-message" className="block text-xs font-bold text-textPrimary uppercase tracking-wider mb-2">
-                    Message
-                  </label>
+                {/* Modern Floating Label: Message */}
+                <div className="relative">
                   <textarea
                     id="contact-message"
                     name="message"
                     rows="4"
                     required
+                    placeholder=" "
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell me about your web app vision or project requirements..."
-                    className="w-full px-5 py-3.5 rounded-2xl border border-borderLight bg-white/90 text-textPrimary placeholder:text-textSecondary/60 focus:outline-none focus:border-accentPrimary focus:ring-2 focus:ring-accentPrimary/20 transition-all font-medium text-sm resize-none"
+                    className="peer w-full px-5 pt-6 pb-2 rounded-2xl border border-borderLight bg-white/95 text-textPrimary placeholder-transparent focus:outline-none focus:border-accentPrimary focus:ring-2 focus:ring-accentPrimary/20 transition-all font-medium text-sm resize-none"
                   ></textarea>
+                  <label
+                    htmlFor="contact-message"
+                    className="absolute left-5 top-4 text-xs font-semibold text-textSecondary uppercase tracking-wider transition-all duration-200 pointer-events-none peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-textSecondary/60 peer-placeholder-shown:normal-case peer-placeholder-shown:font-medium peer-focus:top-1.5 peer-focus:text-[10px] peer-focus:font-bold peer-focus:text-accentPrimary peer-focus:uppercase peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:text-accentPrimary peer-[:not(:placeholder-shown)]:uppercase"
+                  >
+                    Your Message / Project Details
+                  </label>
                 </div>
 
                 <button
