@@ -5,6 +5,7 @@ import App from '../src/App';
 describe('App Setup', () => {
   it('renders without crashing', () => {
     const { getByText } = render(<App />);
-    expect(getByText('Portfolio')).toBeDefined();
+    expect(getByText('M.')).toBeDefined();
+    expect(getByText(/👋 Hi, I'm Mohamed/i)).toBeDefined();
   });
 });
