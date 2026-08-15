@@ -7,11 +7,12 @@ describe('Projects Component', () => {
     const { getByText, getAllByText, container } = render(<Projects />);
     expect(container.querySelector('#projects')).toBeDefined();
     expect(getByText("Selected Web-Apps & Projects")).toBeDefined();
-    expect(getByText("LiquidGlass Studio Platform")).toBeDefined();
-    expect(getByText("Pulse Commerce Web-App")).toBeDefined();
-    expect(getByText("Nexus AI Workflow Studio")).toBeDefined();
-    expect(getByText("Aura Glass UI Design System")).toBeDefined();
-    expect(getAllByText(/Launch Application/i).length).toBe(4);
-    expect(getAllByText(/Source Code/i).length).toBe(4);
+    expect(getByText("L'Épicurieux Restaurant & Bar")).toBeDefined();
+    expect(getByText("The Mighty Spice Co.")).toBeDefined();
+    expect(getByText("Porty Hotel & Stay Platform")).toBeDefined();
+    expect(getByText("Ashely Digital Agency")).toBeDefined();
+    expect(getByText("PulseFit Gym & Wellness")).toBeDefined();
+    expect(getAllByText(/View Website/i).length).toBe(5);
+    expect(getAllByText(/Source/i).length).toBe(5);
   });
 });
