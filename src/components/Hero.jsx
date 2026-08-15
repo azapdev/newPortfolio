@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Code2, Sparkles, Terminal, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Code2, Sparkles } from 'lucide-react';
 import ParticleCanvas from './ParticleCanvas';
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen w-full flex items-center justify-center pl-6 sm:pl-10 lg:pl-16 pr-0 pt-28 pb-10 relative overflow-hidden bg-bgMain"
+      className="min-h-screen w-full flex items-center justify-between pl-6 sm:pl-10 lg:pl-16 pr-0 pt-24 pb-0 relative overflow-hidden bg-bgMain"
     >
       {/* Interactive Constellation / Particle Canvas Background */}
       <ParticleCanvas />
@@ -20,14 +20,14 @@ export default function Hero() {
       </div>
 
       {/* Main Fluid Hero Content Container */}
-      <div className="w-full relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-4 items-center">
+      <div className="w-full relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-4 items-center min-h-[calc(100vh-6rem)]">
         
         {/* Left Side: Typography & Copy */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-7 flex flex-col items-start text-left pr-6 sm:pr-10"
+          className="lg:col-span-7 flex flex-col items-start text-left pr-6 sm:pr-10 py-12"
         >
           {/* Apple HIG-style Liquid Pill Badge */}
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/80 backdrop-blur-xl border border-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.04)] mb-6 hover:shadow-md transition-all">
@@ -86,19 +86,19 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Side: Avatar Sticking Cleanly to the Right Border with Zero White Box */}
+        {/* Right Side: Full Screen-Height Avatar Sticking to Right and Bottom Edge */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-5 relative flex justify-end items-end w-full"
+          className="lg:col-span-5 relative flex justify-end items-end w-full h-[65vh] lg:h-[calc(100vh-6rem)] self-end"
         >
-          {/* Avatar Image (Sticking directly to the right border, uncropped full body) */}
-          <div className="relative flex justify-end items-end w-full">
+          {/* Avatar Image (Takes full height below navbar, sticking to bottom & right border) */}
+          <div className="relative flex justify-end items-end w-full h-full">
             <img
               src="/assets/hero-avatar.png"
               alt="Ahmed Elazap - Full Body Portrait"
-              className="max-h-[75vh] sm:max-h-[82vh] lg:max-h-[88vh] w-auto max-w-full object-contain object-right-bottom drop-shadow-[0_15px_30px_rgba(0,0,0,0.12)] transition-transform duration-500 hover:scale-[1.01]"
+              className="h-full w-auto max-w-full object-contain object-right-bottom drop-shadow-[0_15px_35px_rgba(0,0,0,0.14)] transition-transform duration-500 hover:scale-[1.01]"
               onError={(e) => {
                 e.target.style.display = 'none';
               }}
