@@ -3,12 +3,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Skills from './components/Skills';
 
 function HomePage() {
   return (
     <div className="pt-16">
       <Hero />
       <About />
+      <Skills />
     </div>
   );
 }
