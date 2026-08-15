@@ -50,11 +50,11 @@ export default function Navbar() {
             aria-label="Ahmed Elazap Home"
           >
             <img
-              src="/assets/color-replaced.webp"
+              src="/assets/color-replaced.png"
               alt="Ahmed Elazap Logo"
               className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_4px_12px_rgba(45,168,160,0.35)]"
               onError={(e) => {
-                e.target.src = '/assets/logo.webp';
+                e.target.src = '/assets/logo.png';
               }}
             />
             <div className="flex flex-col text-left">

@@ -39,12 +39,12 @@ export default function Footer() {
         
         {/* Identity */}
         <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-accentPrimary to-[#7B61FF] p-0.5 shadow-sm flex items-center justify-center">
+          <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-accentPrimary to-[#7B61FF] p-0.5 shadow-sm flex items-center justify-center">
             <img
-              src="/assets/logo.webp"
+              src="/assets/color-replaced.png"
               alt="Ahmed Elazap"
-              className="w-full h-full object-cover rounded-full bg-white"
-              onError={(e) => { e.target.style.display = 'none'; }}
+              className="w-full h-full object-contain rounded-full bg-white"
+              onError={(e) => { e.target.src = '/assets/logo.png'; }}
             />
           </div>
           <div>
