@@ -14,8 +14,8 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed w-full top-0 z-50 bg-white/70 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/60 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all">
-      <div className="w-full px-6 sm:px-10 lg:px-16 h-20 flex items-center justify-between">
+    <nav className="fixed w-full top-0 z-50 bg-white/75 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/60 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all">
+      <div className="w-full px-6 sm:px-10 lg:px-16 h-24 flex items-center justify-between">
         
         {/* Left: Navigation Links */}
         <div className="hidden lg:flex items-center gap-8 flex-1 justify-start">
@@ -40,26 +40,26 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Center: Free-Form Accented Logo (No Rigid Box) */}
+        {/* Center: Large Free-Form Accented Logo */}
         <div className="flex items-center justify-center">
           <Link
             to="/"
-            className="group flex items-center gap-3.5 py-1 px-3 rounded-full hover:bg-white/50 transition-all duration-300"
+            className="group flex items-center gap-4 py-1 px-3 rounded-full hover:bg-white/60 transition-all duration-300"
             aria-label="Ahmed Elazap Home"
           >
             <img
               src="/assets/color-replaced.webp"
               alt="Ahmed Elazap Logo"
-              className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(45,168,160,0.3)]"
+              className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_4px_12px_rgba(45,168,160,0.35)]"
               onError={(e) => {
                 e.target.src = '/assets/logo.webp';
               }}
             />
             <div className="flex flex-col text-left">
-              <span className="font-heading font-extrabold text-base text-textPrimary leading-tight tracking-tight group-hover:text-accentPrimary transition-colors">
+              <span className="font-heading font-extrabold text-lg sm:text-xl text-textPrimary leading-none tracking-tight group-hover:text-accentPrimary transition-colors">
                 Ahmed Elazap
               </span>
-              <span className="text-[10px] font-semibold text-accentPrimary uppercase tracking-wider">
+              <span className="text-[11px] font-bold text-accentPrimary uppercase tracking-widest mt-1">
                 Front-End & Web-App Dev
               </span>
             </div>
@@ -70,14 +70,14 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-4 flex-1 justify-end">
           <a
             href="/resume.pdf"
-            className="px-5 py-2.5 rounded-full text-sm font-medium text-textPrimary bg-white/70 hover:bg-white border border-white/90 shadow-sm hover:shadow-md hover:border-accentPrimary/40 transition-all duration-200 flex items-center gap-1.5"
+            className="px-6 py-3 rounded-full text-sm font-semibold text-textPrimary bg-white/80 hover:bg-white border border-white/90 shadow-sm hover:shadow-md hover:border-accentPrimary/40 transition-all duration-200 flex items-center gap-1.5"
           >
             Resume
-            <ArrowUpRight size={14} className="text-textSecondary" />
+            <ArrowUpRight size={15} className="text-textSecondary" />
           </a>
           <a
             href="/#contact"
-            className="px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-accentPrimary to-[#258c85] hover:from-[#258c85] hover:to-[#1e736d] shadow-[0_4px_14px_rgba(45,168,160,0.35)] hover:shadow-[0_6px_20px_rgba(45,168,160,0.45)] hover:-translate-y-0.5 transition-all duration-200"
+            className="px-6 py-3 rounded-full text-sm font-bold text-white bg-gradient-to-r from-accentPrimary via-[#3AAFA9] to-[#258c85] hover:opacity-95 shadow-[0_4px_16px_rgba(45,168,160,0.4)] hover:shadow-[0_8px_24px_rgba(45,168,160,0.5)] hover:-translate-y-0.5 transition-all duration-200"
           >
             Contact Me
           </a>
@@ -87,10 +87,10 @@ export default function Navbar() {
         <div className="flex lg:hidden items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-2xl bg-white/80 border border-white/80 text-textPrimary shadow-sm hover:text-accentPrimary transition-colors"
+            className="p-2.5 rounded-2xl bg-white/80 border border-white/80 text-textPrimary shadow-sm hover:text-accentPrimary transition-colors"
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -123,14 +123,14 @@ export default function Navbar() {
             <a
               href="/resume.pdf"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center py-2.5 rounded-xl border border-borderLight text-textPrimary font-medium"
+              className="w-full text-center py-3 rounded-xl border border-borderLight text-textPrimary font-semibold"
             >
               Resume
             </a>
             <a
               href="/#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center py-2.5 rounded-xl bg-accentPrimary text-white font-semibold shadow-md"
+              className="w-full text-center py-3 rounded-xl bg-accentPrimary text-white font-bold shadow-md"
             >
               Contact Me
             </a>

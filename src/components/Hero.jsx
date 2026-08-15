@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen w-full flex items-center justify-center px-6 sm:px-10 lg:px-16 pt-24 pb-16 relative overflow-hidden bg-bgMain"
+      className="min-h-screen w-full flex items-center justify-center pl-6 sm:pl-10 lg:pl-16 pr-0 pt-28 pb-10 relative overflow-hidden bg-bgMain"
     >
       {/* Interactive Constellation / Particle Canvas Background */}
       <ParticleCanvas />
@@ -20,14 +20,14 @@ export default function Hero() {
       </div>
 
       {/* Main Fluid Hero Content Container */}
-      <div className="w-full relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="w-full relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-4 items-center">
         
         {/* Left Side: Typography & Copy */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-7 flex flex-col items-start text-left"
+          className="lg:col-span-7 flex flex-col items-start text-left pr-6 sm:pr-10"
         >
           {/* Apple HIG-style Liquid Pill Badge */}
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/80 backdrop-blur-xl border border-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.04)] mb-6 hover:shadow-md transition-all">
@@ -86,37 +86,30 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Side: Natural Full-Body Presentation with Organic Ambient Glow & Floating Liquid Badges */}
+        {/* Right Side: Avatar Sticking Cleanly to the Right Border with Zero White Box */}
         <motion.div
-          initial={{ opacity: 0, x: 40, scale: 0.95 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-5 relative flex justify-center items-end"
+          className="lg:col-span-5 relative flex justify-end items-end w-full"
         >
-          {/* Ambient Glow Aura Behind Full Body */}
-          <div className="absolute inset-0 max-w-sm mx-auto bg-gradient-to-t from-accentPrimary/25 via-[#7B61FF]/20 to-transparent rounded-full blur-3xl pointer-events-none transform -translate-y-6"></div>
-
-          {/* Full Body Image (Uncropped, Natural Aspect Ratio, Sitting Back on the Side) */}
-          <div className="relative z-10 flex flex-col items-center group">
-            
+          {/* Avatar Image (Sticking directly to the right border, uncropped full body) */}
+          <div className="relative flex justify-end items-end w-full">
             <img
               src="/assets/hero-avatar.png"
               alt="Ahmed Elazap - Full Body Portrait"
-              className="max-h-[72vh] sm:max-h-[78vh] w-auto max-w-full object-contain drop-shadow-[0_20px_35px_rgba(31,36,48,0.18)] transition-transform duration-700 group-hover:scale-[1.02]"
+              className="max-h-[75vh] sm:max-h-[82vh] lg:max-h-[88vh] w-auto max-w-full object-contain object-right-bottom drop-shadow-[0_15px_30px_rgba(0,0,0,0.12)] transition-transform duration-500 hover:scale-[1.01]"
               onError={(e) => {
                 e.target.style.display = 'none';
               }}
             />
 
-            {/* Subtle Liquid Glass Floor Reflection / Stand */}
-            <div className="w-3/4 h-4 bg-gradient-to-r from-transparent via-accentPrimary/20 to-transparent rounded-full blur-sm -mt-3"></div>
-
-            {/* Floating Liquid Glass Badge Top Right */}
+            {/* Floating Glass Pill Top Left of Avatar */}
             <motion.div
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="absolute top-10 -right-4 sm:-right-6 px-4 py-2.5 rounded-2xl bg-white/85 backdrop-blur-xl border border-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex items-center gap-2.5 z-20 hover:scale-105 transition-transform"
+              className="absolute top-12 left-0 sm:left-4 px-4 py-2.5 rounded-2xl bg-white/85 backdrop-blur-xl border border-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex items-center gap-2.5 z-20 hover:scale-105 transition-transform"
             >
               <div className="p-1.5 rounded-xl bg-accentPrimary/15 text-accentPrimary">
                 <Code2 size={18} />
@@ -127,12 +120,12 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Floating Liquid Glass Badge Bottom Left */}
+            {/* Floating Glass Pill Lower Left */}
             <motion.div
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
-              className="absolute bottom-16 -left-4 sm:-left-6 px-4 py-2.5 rounded-2xl bg-white/85 backdrop-blur-xl border border-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex items-center gap-2.5 z-20 hover:scale-105 transition-transform"
+              className="absolute bottom-20 left-2 sm:left-8 px-4 py-2.5 rounded-2xl bg-white/85 backdrop-blur-xl border border-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex items-center gap-2.5 z-20 hover:scale-105 transition-transform"
             >
               <div className="p-1.5 rounded-xl bg-[#7B61FF]/15 text-[#7B61FF]">
                 <Sparkles size={18} />
@@ -142,20 +135,6 @@ export default function Hero() {
                 <p className="text-[9px] font-medium text-textSecondary mt-0.5">Fluid & Intuitive</p>
               </div>
             </motion.div>
-
-            {/* Floating Live Badge Bottom Right */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-              className="hidden sm:flex absolute bottom-6 right-2 px-3.5 py-2 rounded-xl bg-white/90 backdrop-blur-xl border border-white shadow-lg items-center gap-2 z-20"
-            >
-              <CheckCircle2 size={14} className="text-success" />
-              <span className="text-[11px] font-mono font-semibold text-textPrimary">
-                Full-Stack Ready
-              </span>
-            </motion.div>
-
           </div>
         </motion.div>
 
