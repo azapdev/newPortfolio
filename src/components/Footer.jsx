@@ -1,6 +1,9 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
 
+/**
+ * Inline SVG Social Icons to prevent external icon bundle resolution issues
+ */
 function GithubIcon({ size = 18 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -28,7 +31,17 @@ function TwitterIcon({ size = 18 }) {
   );
 }
 
+/**
+ * Footer Component
+ * Clean bottom footer featuring:
+ * - Brand identity badge and dynamic copyright notice
+ * - Social media profile links
+ * - Smooth scroll-to-top button
+ */
 export default function Footer() {
+  /**
+   * Smoothly scrolls user viewport back to the top of the page
+   */
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -37,7 +50,7 @@ export default function Footer() {
     <footer className="w-full bg-white/70 backdrop-blur-2xl border-t border-borderLight/80 py-10">
       <div className="w-full px-6 sm:px-10 lg:px-16 flex flex-col md:flex-row justify-between items-center gap-6">
         
-        {/* Identity */}
+        {/* Brand & Identity */}
         <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
           <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-accentPrimary to-[#7B61FF] p-0.5 shadow-sm flex items-center justify-center">
             <img
@@ -55,7 +68,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Social Links & Back To Top */}
+        {/* Social Links & Back To Top Action */}
         <div className="flex items-center gap-4">
           <a
             href="https://github.com"

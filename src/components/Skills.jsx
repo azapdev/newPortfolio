@@ -2,15 +2,25 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code, Layout, Cpu, Database, Palette, Smartphone, Terminal, Globe, Sparkles, CheckCircle2 } from 'lucide-react';
 
+/**
+ * Skills Component
+ * Interactive technical stack section:
+ * - Apple-style segmented liquid tab switcher (Frontend Core, Web-App & State, Tooling & Design)
+ * - Animated tab transition with Framer Motion layoutId spring animations
+ * - Liquid glass cards detailing proficiency level, capability summary, and production validation
+ */
 export default function Skills() {
+  // Currently active category tab state
   const [activeTab, setActiveTab] = useState('frontend');
 
+  // Category definitions for segmented control
   const categories = [
     { id: 'frontend', label: '⚡ Frontend Core', icon: Layout },
     { id: 'webapp', label: '🚀 Web-App & State', icon: Cpu },
     { id: 'tools', label: '🛠️ Tooling & Design', icon: Palette },
   ];
 
+  // Comprehensive technical skills catalog grouped by category
   const skillData = {
     frontend: [
       { name: 'React.js', level: 'Expert', desc: 'Hooks, Suspense, Server Components, Virtual DOM', icon: Code },
@@ -42,7 +52,7 @@ export default function Skills() {
     <section id="skills" className="py-28 bg-bgMain relative overflow-hidden">
       <div className="w-full px-6 sm:px-10 lg:px-16">
         
-        {/* Header */}
+        {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <span className="px-4 py-1.5 rounded-full bg-accentPrimary/10 text-accentPrimary font-semibold text-xs uppercase tracking-wider mb-3">
             Technical Arsenal
@@ -71,6 +81,7 @@ export default function Skills() {
                       : 'text-textSecondary hover:text-textPrimary'
                   }`}
                 >
+                  {/* Sliding glass pill indicator */}
                   {isActive && (
                     <motion.div
                       layoutId="activeSkillTab"
@@ -88,7 +99,7 @@ export default function Skills() {
           </div>
         </div>
 
-        {/* Fluid Grid of Skills */}
+        {/* Animated Fluid Grid of Skills */}
         <div className="min-h-[380px]">
           <AnimatePresence mode="wait">
             <motion.div
@@ -123,6 +134,7 @@ export default function Skills() {
                       </p>
                     </div>
 
+                    {/* Production status badge */}
                     <div className="mt-4 pt-3 border-t border-borderLight/50 flex items-center gap-1.5 text-[11px] font-medium text-accentPrimary">
                       <CheckCircle2 size={13} />
                       <span>Production Tested</span>

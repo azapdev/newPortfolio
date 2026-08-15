@@ -9,6 +9,15 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Gallery from './pages/Gallery';
 
+/**
+ * HomePage Component
+ * Assembles the primary single-page experience:
+ * - Hero: Full-screen introduction with interactive particles and full-body portrait
+ * - About: Engineering background, metrics, and design philosophy
+ * - Skills: Interactive segmented technical stack tabs
+ * - Projects: Live imported production web applications
+ * - Contact: Interactive floating label inquiry form
+ */
 function HomePage() {
   return (
     <div className="pt-16">
@@ -21,6 +30,13 @@ function HomePage() {
   );
 }
 
+/**
+ * App Root Component
+ * Sets up client-side SPA routing with React Router:
+ * - Global fixed Navbar and Footer layout
+ * - `/`: Main landing and portfolio experience
+ * - `/gallery`: Full-screen design & web-app gallery
+ */
 export default function App() {
   return (
     <BrowserRouter>
@@ -35,4 +51,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-

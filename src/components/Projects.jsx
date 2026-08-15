@@ -1,6 +1,9 @@
 import React from 'react';
 import { Sparkles, ArrowUpRight } from 'lucide-react';
 
+/**
+ * Inline SVG GitHub Icon component to prevent third-party bundle resolution issues
+ */
 function GithubIcon({ size = 18, className = "" }) {
   return (
     <svg
@@ -20,7 +23,15 @@ function GithubIcon({ size = 18, className = "" }) {
   );
 }
 
+/**
+ * Projects Component
+ * Production works and web application showcases imported from azapdev.vercel.app/works:
+ * - High-resolution application preview banners
+ * - Live deployment links and GitHub source repositories
+ * - Tech stack tags and fluid liquid glass card containers
+ */
 export default function Projects() {
+  // Live project portfolio catalog
   const projects = [
     {
       title: "L'Épicurieux Restaurant & Bar",
@@ -104,8 +115,10 @@ export default function Projects() {
                   }}
                 />
                 
+                {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
 
+                {/* Top Badge Overlay */}
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
                   <div className="p-2 rounded-xl bg-white/90 backdrop-blur-xl border border-white shadow-sm flex items-center gap-1.5">
                     <Sparkles size={14} style={{ color: proj.accent }} />
@@ -116,6 +129,7 @@ export default function Projects() {
                   </span>
                 </div>
 
+                {/* Bottom Title Overlay */}
                 <div className="absolute bottom-4 left-4 right-4 z-10">
                   <h4 className="text-xl sm:text-2xl font-heading font-extrabold text-white drop-shadow-md">
                     {proj.title}
@@ -126,6 +140,7 @@ export default function Projects() {
               {/* Card Body */}
               <div className="p-7 sm:p-8 flex flex-col justify-between flex-1">
                 <div>
+                  {/* Tech stack tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {proj.tags.map((tag) => (
                       <span
@@ -137,12 +152,13 @@ export default function Projects() {
                     ))}
                   </div>
 
+                  {/* Project description */}
                   <p className="text-textSecondary text-sm leading-relaxed mb-6">
                     {proj.desc}
                   </p>
                 </div>
 
-                {/* Actions */}
+                {/* Action Links (Live demo + source repository) */}
                 <div className="flex items-center justify-between pt-5 border-t border-borderLight/60">
                   <a
                     href={proj.links.demo}

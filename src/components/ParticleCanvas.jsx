@@ -1,34 +1,51 @@
 import React, { useEffect, useRef } from 'react';
 
+/**
+ * ParticleCanvas Component
+ * Renders an interactive HTML5 canvas background featuring a dynamic constellation mesh:
+ * - Floating colored nodes that drift across the hero section
+ * - Proximity-based lines connecting nearby particles
+ * - Interactive physics that repel particles from the cursor and draw elastic connection rays
+ */
 export default function ParticleCanvas() {
+  // Reference to the canvas DOM element
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    // 2D Rendering Context
     const ctx = canvas.getContext('2d');
-    if (!ctx) return; // Guard for test environments / JSDOM
+    if (!ctx) return; // Guard for non-canvas environments like JSDOM test runners
 
     let animationFrameId;
+    // Set dynamic canvas dimensions based on parent container size
     let width = (canvas.width = canvas.parentElement?.offsetWidth || window.innerWidth || 800);
     let height = (canvas.height = canvas.parentElement?.offsetHeight || window.innerHeight || 600);
 
+    // Accent color palette aligned with the brand design system
     const colors = ['#2DA8A0', '#7B61FF', '#3AAFA9', '#FF8A65', '#4CAF7D'];
 
-    // Mouse coordinates
+    // Track mouse coordinates for interactive particle physics
     const mouse = {
       x: null,
       y: null,
-      radius: 160
+      radius: 160 // Influence radius around the cursor
     };
 
+    /**
+     * Updates mouse position relative to canvas bounding box
+     */
     const handleMouseMove = (e) => {
       const rect = canvas.getBoundingClientRect();
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
     };
 
+    /**
+     * Resets mouse coordinates when the cursor leaves the window
+     */
     const handleMouseLeave = () => {
       mouse.x = null;
       mouse.y = null;
@@ -37,6 +54,9 @@ export default function ParticleCanvas() {
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseleave', handleMouseLeave);
 
+    /**
+     * Handles window resizing and re-initializes particle positions
+     */
     const handleResize = () => {
       if (!canvas || !canvas.parentElement) return;
       width = canvas.width = canvas.parentElement.offsetWidth || window.innerWidth || 800;
@@ -46,6 +66,10 @@ export default function ParticleCanvas() {
 
     window.addEventListener('resize', handleResize);
 
+    /**
+     * Particle Class
+     * Represents a single autonomous node with position, velocity, and visual styles
+     */
     class Particle {
       constructor() {
         this.x = Math.random() * width;
@@ -53,12 +77,15 @@ export default function ParticleCanvas() {
         this.size = Math.random() * 3 + 2;
         this.baseX = this.x;
         this.baseY = this.y;
-        this.vx = (Math.random() - 0.5) * 0.8;
-        this.vy = (Math.random() - 0.5) * 0.8;
+        this.vx = (Math.random() - 0.5) * 0.8; // Horizontal drift velocity
+        this.vy = (Math.random() - 0.5) * 0.8; // Vertical drift velocity
         this.color = colors[Math.floor(Math.random() * colors.length)];
         this.alpha = Math.random() * 0.5 + 0.4;
       }
 
+      /**
+       * Draws the particle on the 2D canvas with specular soft glow
+       */
       draw() {
         if (!ctx) return;
         ctx.beginPath();
@@ -72,14 +99,18 @@ export default function ParticleCanvas() {
         ctx.globalAlpha = 1;
       }
 
+      /**
+       * Updates position and applies repulsion force when near mouse
+       */
       update() {
         this.x += this.vx;
         this.y += this.vy;
 
+        // Bounce particles off container walls
         if (this.x < 0 || this.x > width) this.vx *= -1;
         if (this.y < 0 || this.y > height) this.vy *= -1;
 
-        // Interaction with mouse
+        // Apply interactive magnetic repulsion from mouse cursor
         if (mouse.x !== null && mouse.y !== null) {
           const dx = mouse.x - this.x;
           const dy = mouse.y - this.y;
@@ -101,8 +132,12 @@ export default function ParticleCanvas() {
     }
 
     let particles = [];
+    // Calculate optimal particle density based on screen area
     const particleCount = Math.min(Math.floor((width * height) / 12000), 90);
 
+    /**
+     * Initializes the particle array
+     */
     const initParticles = () => {
       particles = [];
       for (let i = 0; i < particleCount; i++) {
@@ -112,9 +147,13 @@ export default function ParticleCanvas() {
 
     initParticles();
 
+    /**
+     * Calculates distance between pairs of particles and draws connective lines
+     */
     const connectParticles = () => {
       if (!ctx) return;
       for (let a = 0; a < particles.length; a++) {
+        // Inter-particle connections
         for (let b = a + 1; b < particles.length; b++) {
           const dx = particles[a].x - particles[b].x;
           const dy = particles[a].y - particles[b].y;
@@ -133,7 +172,7 @@ export default function ParticleCanvas() {
           }
         }
 
-        // Connect to mouse
+        // Particle-to-mouse connection rays
         if (mouse.x !== null && mouse.y !== null) {
           const dx = particles[a].x - mouse.x;
           const dy = particles[a].y - mouse.y;
@@ -154,21 +193,27 @@ export default function ParticleCanvas() {
       }
     };
 
+    /**
+     * Main animation render loop using requestAnimationFrame
+     */
     const animate = () => {
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
 
+      // Update and draw all particles
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw();
       }
 
+      // Draw connective mesh lines
       connectParticles();
       animationFrameId = requestAnimationFrame(animate);
     };
 
     animate();
 
+    // Cleanup event listeners and animation frame on unmount
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('mousemove', handleMouseMove);

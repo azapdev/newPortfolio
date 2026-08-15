@@ -1,7 +1,15 @@
 import React from 'react';
 import { Layers, Zap, ShieldCheck, HeartHandshake } from 'lucide-react';
 
+/**
+ * About Component
+ * Developer overview and key engineering philosophy:
+ * - Bio storytelling card focusing on frontend & web-app development
+ * - Core philosophy highlights (Human-Centered Design, Modern Web Architecture, Liquid Motion)
+ * - 2x2 Interactive Stats Matrix showcasing experience, shipped apps, and reliability
+ */
 export default function About() {
+  // Quantifiable performance and engineering metrics
   const stats = [
     { label: "Years Experience", value: "3+", icon: Zap, color: "text-accentPrimary" },
     { label: "Web Apps Shipped", value: "20+", icon: Layers, color: "text-[#7B61FF]" },
@@ -9,6 +17,7 @@ export default function About() {
     { label: "Code Reliability", value: "100%", icon: HeartHandshake, color: "text-success" }
   ];
 
+  // Core engineering pillars
   const highlights = [
     {
       title: "Human-Centered Design",
@@ -41,7 +50,7 @@ export default function About() {
           </p>
         </div>
 
-        {/* Fluid 2-Column Grid */}
+        {/* Fluid 2-Column Responsive Grid */}
         <div className="grid lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Main Story Bio Card */}
@@ -58,7 +67,7 @@ export default function About() {
               </p>
             </div>
 
-            {/* Feature Highlights */}
+            {/* Feature Highlights Grid */}
             <div className="grid sm:grid-cols-3 gap-4 pt-6 border-t border-borderLight/60">
               {highlights.map((item, idx) => (
                 <div key={idx} className="flex flex-col">
@@ -73,9 +82,9 @@ export default function About() {
             </div>
           </div>
 
-          {/* Stats Matrix */}
+          {/* Stats Matrix Grid */}
           <div className="lg:col-span-5 grid grid-cols-2 gap-4 sm:gap-6">
-            {stats.map((stat, i) => {
+            {stats.map((stat) => {
               const Icon = stat.icon;
               return (
                 <div

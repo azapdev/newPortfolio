@@ -1,16 +1,31 @@
 import React, { useState } from 'react';
 import { Mail, Phone, Send, CheckCircle2, Sparkles } from 'lucide-react';
 
+/**
+ * Contact Component
+ * Direct communication channel with Apple-inspired floating label inputs:
+ * - Direct email and Phone/WhatsApp cards
+ * - Modern inputs with floating margin labels (peer pseudo-selectors)
+ * - Animated form submission confirmation state with auto-reset
+ */
 export default function Contact() {
+  // Form submission success state
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
 
+  // Controlled form state
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  /**
+   * Handles contact form submission with instant feedback
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+
+    // Reset after 4 seconds
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      setFormData({ name: '', email: '', message: '' });
     }, 4000);
   };
 
@@ -18,10 +33,10 @@ export default function Contact() {
     <section id="contact" className="py-28 bg-bgMain relative overflow-hidden">
       <div className="w-full px-6 sm:px-10 lg:px-16">
         
-        {/* Main Fluid Glass Container */}
+        {/* Main Fluid Glass Card Container */}
         <div className="bg-white/85 backdrop-blur-2xl rounded-[2.5rem] p-8 sm:p-14 lg:p-16 border border-white/90 shadow-[0_12px_40px_rgba(0,0,0,0.04)] grid lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Info Column */}
+          {/* Left Column: Contact Channels & Context */}
           <div className="lg:col-span-5 flex flex-col justify-between h-full">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accentPrimary/10 text-accentPrimary font-semibold text-xs uppercase tracking-wider mb-4">
@@ -36,9 +51,9 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Contact Details Cards */}
+            {/* Direct Contact Cards Grid */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              {/* Email Card */}
+              {/* Direct Email Card */}
               <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-bgAlt/80 border border-borderLight/60 hover:border-accentPrimary/40 transition-colors">
                 <div className="p-3 rounded-xl bg-accentPrimary/10 text-accentPrimary flex items-center justify-center">
                   <Mail size={20} />
@@ -51,7 +66,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Phone Card */}
+              {/* Phone & WhatsApp Card */}
               <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-bgAlt/80 border border-borderLight/60 hover:border-accentPrimary/40 transition-colors">
                 <div className="p-3 rounded-xl bg-[#7B61FF]/10 text-[#7B61FF] flex items-center justify-center">
                   <Phone size={20} />
@@ -66,9 +81,10 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right Form Column with Floating Margin Label Inputs */}
+          {/* Right Column: Interactive Form with Floating Margin Labels */}
           <div className="lg:col-span-7 bg-bgAlt/60 backdrop-blur-xl p-8 sm:p-10 rounded-3xl border border-white/80 shadow-inner">
             {submitted ? (
+              // Success Feedback Screen
               <div className="py-12 flex flex-col items-center justify-center text-center animate-in fade-in zoom-in duration-300">
                 <div className="w-16 h-16 rounded-full bg-success/15 text-success flex items-center justify-center mb-4">
                   <CheckCircle2 size={36} />
@@ -79,9 +95,10 @@ export default function Contact() {
                 </p>
               </div>
             ) : (
+              // Contact Form
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 
-                {/* Modern Floating Label: Name */}
+                {/* Floating Label Input: Name */}
                 <div className="relative">
                   <input
                     id="contact-name"
@@ -101,7 +118,7 @@ export default function Contact() {
                   </label>
                 </div>
 
-                {/* Modern Floating Label: Email */}
+                {/* Floating Label Input: Email */}
                 <div className="relative">
                   <input
                     id="contact-email"
@@ -121,7 +138,7 @@ export default function Contact() {
                   </label>
                 </div>
 
-                {/* Modern Floating Label: Message */}
+                {/* Floating Label Textarea: Message */}
                 <div className="relative">
                   <textarea
                     id="contact-message"
@@ -141,6 +158,7 @@ export default function Contact() {
                   </label>
                 </div>
 
+                {/* Submit Action Button */}
                 <button
                   type="submit"
                   className="w-full py-4 px-6 bg-gradient-to-r from-accentPrimary via-[#3AAFA9] to-[#258c85] hover:opacity-95 text-white rounded-2xl font-bold shadow-[0_8px_24px_rgba(45,168,160,0.35)] hover:shadow-[0_12px_28px_rgba(45,168,160,0.45)] hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 text-sm"

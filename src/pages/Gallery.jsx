@@ -1,8 +1,16 @@
 import React from 'react';
-import { Sparkles, ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Gallery Page Component
+ * Visual gallery showcasing live production deployments and application UIs:
+ * - Direct routing at `/gallery`
+ * - Card grid with live previews, tags, and category taxonomies
+ * - Seamless external links opening directly to live deployments
+ */
 export default function Gallery() {
+  // Live gallery items imported from portfolio assets
   const galleryItems = [
     {
       title: "L'Épicurieux Restaurant & Bar",
@@ -47,6 +55,7 @@ export default function Gallery() {
         
         {/* Navigation & Header */}
         <div className="mb-12 flex flex-col items-start">
+          {/* Return Home Link */}
           <Link
             to="/"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/90 shadow-sm text-sm font-semibold text-textSecondary hover:text-accentPrimary hover:shadow-md transition-all mb-8"
@@ -55,6 +64,7 @@ export default function Gallery() {
             <span>Back to Home</span>
           </Link>
 
+          {/* Title and Intro Copy */}
           <div className="flex flex-col items-center text-center w-full">
             <span className="px-4 py-1.5 rounded-full bg-accentPrimary/10 text-accentPrimary font-semibold text-xs uppercase tracking-wider mb-3">
               UI & Application Showcase
@@ -68,7 +78,7 @@ export default function Gallery() {
           </div>
         </div>
 
-        {/* Fluid Responsive Grid */}
+        {/* Fluid Responsive Gallery Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {galleryItems.map((item, idx) => (
             <a
@@ -78,7 +88,7 @@ export default function Gallery() {
               rel="noopener noreferrer"
               className="bg-white/85 backdrop-blur-2xl rounded-[2rem] overflow-hidden border border-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(45,168,160,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
             >
-              {/* Visual Frame Image */}
+              {/* Visual Preview Banner */}
               <div className="relative h-64 w-full overflow-hidden bg-bgAlt">
                 <img
                   src={item.img}
@@ -89,8 +99,10 @@ export default function Gallery() {
                   }}
                 />
                 
+                {/* Visual dark contrast gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent"></div>
 
+                {/* Top Badge Overlay */}
                 <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
                   <span className="text-[10px] font-semibold px-2.5 py-1 rounded-xl bg-white/90 backdrop-blur-md text-textPrimary shadow-sm">
                     {item.tag}
@@ -100,6 +112,7 @@ export default function Gallery() {
                   </div>
                 </div>
 
+                {/* Bottom Title & Category Overlay */}
                 <div className="absolute bottom-4 left-4 right-4 z-10">
                   <p className="text-[11px] font-mono uppercase tracking-widest text-white/80">{item.category}</p>
                   <h4 className="text-xl font-heading font-extrabold text-white mt-0.5 drop-shadow">
