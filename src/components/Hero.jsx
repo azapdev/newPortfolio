@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Code2, Zap, Layers, Cpu, Globe, Palette } from 'lucide-react';
+import { ArrowRight, Sparkles, Code2, Zap, Cpu, Globe, Palette, Activity } from 'lucide-react';
 import ParticleCanvas from './ParticleCanvas';
 
 export default function Hero() {
@@ -11,8 +11,17 @@ export default function Hero() {
       icon: Code2,
       color: 'text-accentPrimary',
       bgColor: 'bg-accentPrimary/15',
-      pos: 'top-10 -left-6 sm:left-2',
-      delay: 0.3,
+      pos: 'top-6 left-6 lg:left-12',
+      delay: 0.2,
+    },
+    {
+      name: 'Real-Time State',
+      desc: 'WebSockets & Zustand',
+      icon: Activity,
+      color: 'text-success',
+      bgColor: 'bg-success/15',
+      pos: 'top-20 right-8 lg:right-72',
+      delay: 0.35,
     },
     {
       name: 'Apple HIG Design',
@@ -20,8 +29,8 @@ export default function Hero() {
       icon: Sparkles,
       color: 'text-[#7B61FF]',
       bgColor: 'bg-[#7B61FF]/15',
-      pos: 'top-28 -left-12 sm:-left-6',
-      delay: 0.4,
+      pos: 'bottom-20 left-6 lg:left-16',
+      delay: 0.45,
     },
     {
       name: 'TypeScript',
@@ -29,35 +38,35 @@ export default function Hero() {
       icon: Cpu,
       color: 'text-[#3AAFA9]',
       bgColor: 'bg-[#3AAFA9]/15',
-      pos: 'top-48 -left-8 sm:left-4',
-      delay: 0.5,
+      pos: 'top-10 right-4 lg:right-16',
+      delay: 0.3,
     },
     {
-      name: 'Next.js',
-      desc: 'App Architecture',
+      name: 'Next.js & SSR',
+      desc: 'Production Grade',
       icon: Globe,
       color: 'text-textPrimary',
       bgColor: 'bg-slate-900/10',
-      pos: 'bottom-48 -left-12 sm:-left-4',
-      delay: 0.6,
+      pos: 'top-1/3 right-1/4 lg:right-80',
+      delay: 0.5,
     },
     {
       name: 'Tailwind CSS',
-      desc: 'Liquid Styling',
+      desc: 'Liquid Glass',
       icon: Palette,
       color: 'text-accentSecondary',
       bgColor: 'bg-accentSecondary/15',
-      pos: 'bottom-28 -left-6 sm:left-6',
-      delay: 0.7,
+      pos: 'bottom-40 right-10 lg:right-64',
+      delay: 0.6,
     },
     {
       name: 'Framer Motion & Vite',
-      desc: 'Liquid Transitions',
+      desc: 'Zero-Lag Motion',
       icon: Zap,
       color: 'text-accentPrimary',
       bgColor: 'bg-accentPrimary/15',
-      pos: 'bottom-10 -left-10 sm:-left-2',
-      delay: 0.8,
+      pos: 'bottom-10 right-8 lg:right-24',
+      delay: 0.7,
     },
   ];
 
@@ -76,41 +85,58 @@ export default function Hero() {
         <div className="absolute bottom-10 left-1/3 w-[28rem] h-[28rem] bg-accentSecondary/10 rounded-full blur-[100px]"></div>
       </div>
 
+      {/* Floating Distributed Liquid Glass Badges across Hero Atmosphere */}
+      <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
+        {floatingTags.map((tag) => {
+          const Icon = tag.icon;
+          return (
+            <motion.div
+              key={tag.name}
+              initial={{ y: 20, opacity: 0, scale: 0.85 }}
+              animate={{ y: [0, -6, 0], opacity: 1, scale: 1 }}
+              transition={{
+                opacity: { delay: tag.delay, duration: 0.6 },
+                scale: { delay: tag.delay, duration: 0.6 },
+                y: { repeat: Infinity, duration: 4 + tag.delay * 2, ease: 'easeInOut' }
+              }}
+              className={`absolute ${tag.pos} pointer-events-auto px-3.5 sm:px-4 py-2 rounded-2xl bg-white/85 backdrop-blur-xl border border-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.07)] flex items-center gap-2.5 hover:scale-105 hover:shadow-[0_12px_28px_rgba(45,168,160,0.25)] transition-all cursor-default group`}
+            >
+              <div className={`p-1.5 rounded-xl ${tag.bgColor} ${tag.color} transition-transform group-hover:scale-110`}>
+                <Icon size={16} />
+              </div>
+              <div className="flex flex-col text-left">
+                <p className="text-[11px] font-bold text-textPrimary leading-none">{tag.name}</p>
+                <p className="text-[9px] font-medium text-textSecondary mt-0.5">{tag.desc}</p>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+
       {/* Main Fluid Hero Content Container */}
       <div className="w-full relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-4 items-center min-h-[calc(100vh-106px)]">
         
-        {/* Left Side: Typography & Copy */}
+        {/* Left Side: Production-Grade Typography & Copy */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-7 flex flex-col items-start text-left pr-6 sm:pr-10 py-10"
+          className="lg:col-span-7 flex flex-col items-start text-left pr-6 sm:pr-10 py-12"
         >
-          {/* Apple HIG-style Liquid Pill Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.04)] mb-6 hover:shadow-md transition-all">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accentPrimary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-accentPrimary"></span>
-            </span>
-            <span className="text-xs font-semibold text-textPrimary tracking-wide">
-              Ahmed Elazap • Front-End & Web-App Developer
-            </span>
-          </div>
-
-          <h1 className="text-4xl sm:text-6xl xl:text-7xl font-heading font-extrabold tracking-tight text-textPrimary leading-[1.1] mb-6">
-            Building Fluid,{' '}
+          <h1 className="text-4xl sm:text-6xl xl:text-7xl font-heading font-extrabold tracking-tight text-textPrimary leading-[1.08] mb-6">
+            Engineering Real-Time,{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accentPrimary via-[#3AAFA9] to-[#7B61FF]">
               Liquid Glass
             </span>{' '}
-            Web Experiences.
+            Web Applications.
           </h1>
 
           <p className="text-base sm:text-lg lg:text-xl text-textSecondary font-normal leading-relaxed mb-8 max-w-2xl">
-            Passionate Front-End & Web-App Developer crafting human-centered, responsive, and high-performance digital products with Apple HIG aesthetics, crisp animations, and modern architectures.
+            Architecting production-grade, high-throughput digital experiences with sub-millisecond responsiveness, Apple HIG precision, and robust frontend distributed ecosystems.
           </p>
 
           {/* Action CTAs */}
-          <div className="flex flex-wrap gap-4 items-center mb-6">
+          <div className="flex flex-wrap gap-4 items-center">
             <a
               href="#projects"
               className="group px-7 py-3.5 rounded-2xl bg-gradient-to-r from-accentPrimary to-[#258c85] text-white font-semibold shadow-[0_6px_20px_rgba(45,168,160,0.35)] hover:shadow-[0_10px_25px_rgba(45,168,160,0.45)] hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2"
@@ -126,10 +152,9 @@ export default function Hero() {
               Get In Touch
             </a>
           </div>
-
         </motion.div>
 
-        {/* Right Side: Full Height Avatar with Floating Liquid Glass Tech Tags */}
+        {/* Right Side: Full Height Avatar Sticking to Right Border */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -146,29 +171,6 @@ export default function Hero() {
                 e.target.style.display = 'none';
               }}
             />
-
-            {/* Floating Liquid Glass Core Tech Tags */}
-            {floatingTags.map((tag) => {
-              const Icon = tag.icon;
-              return (
-                <motion.div
-                  key={tag.name}
-                  initial={{ y: 15, opacity: 0, scale: 0.9 }}
-                  animate={{ y: 0, opacity: 1, scale: 1 }}
-                  transition={{ delay: tag.delay, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className={`absolute ${tag.pos} px-3.5 sm:px-4 py-2 rounded-2xl bg-white/85 backdrop-blur-xl border border-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex items-center gap-2.5 z-20 hover:scale-105 hover:shadow-[0_12px_28px_rgba(45,168,160,0.2)] transition-all cursor-default group`}
-                >
-                  <div className={`p-1.5 rounded-xl ${tag.bgColor} ${tag.color} transition-transform group-hover:scale-110`}>
-                    <Icon size={16} />
-                  </div>
-                  <div className="flex flex-col text-left">
-                    <p className="text-[11px] font-bold text-textPrimary leading-none">{tag.name}</p>
-                    <p className="text-[9px] font-medium text-textSecondary mt-0.5">{tag.desc}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
-
           </div>
         </motion.div>
 

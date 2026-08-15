@@ -17,6 +17,6 @@ describe('Navbar Component', () => {
     expect(getAllByText('Skills').length).toBeGreaterThan(0);
     expect(getAllByText('Projects').length).toBeGreaterThan(0);
     expect(getAllByText('Gallery').length).toBeGreaterThan(0);
-    expect(getAllByText('Resume').length).toBeGreaterThan(0);
+    expect(getAllByText(/CV/i).length).toBeGreaterThan(0);
   });
 });

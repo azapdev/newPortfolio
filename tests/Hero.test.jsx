@@ -6,7 +6,6 @@ describe('Hero Component', () => {
   it('renders hero content', () => {
     const { getByText, getAllByText, getByRole, container } = render(<Hero />);
     expect(container.querySelector('#home')).toBeDefined();
-    expect(getByText(/Ahmed Elazap • Front-End & Web-App Developer/i)).toBeDefined();
     expect(getAllByText(/Liquid Glass/i).length).toBeGreaterThan(0);
     expect(getByRole('heading', { level: 1 })).toBeDefined();
     
