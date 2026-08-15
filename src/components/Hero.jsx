@@ -114,14 +114,14 @@ export default function Hero() {
       </div>
 
       {/* Main Responsive Grid Layout (Unified for Mobile, Tablet, & Desktop) */}
-      <div className="w-full relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 lg:gap-4 items-center flex-1 min-h-[calc(100vh-106px)]">
+      <div className="w-full relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-6 lg:gap-4 items-center flex-1 min-h-[calc(100vh-106px)]">
         
         {/* Text & Copy Column */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="md:col-span-7 flex flex-col items-start text-left pt-6 pb-2 md:py-10 pr-0 md:pr-4 lg:pr-10"
+          className="md:col-span-7 flex flex-col items-start text-left pt-4 sm:pt-6 pb-2 md:py-10 pr-0 md:pr-4 lg:pr-10"
         >
           {/* Subtle Mobile Tech Indicator */}
           <div className="flex md:hidden items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-white/90 shadow-sm mb-4">
@@ -129,7 +129,7 @@ export default function Hero() {
             <span className="text-[11px] font-bold text-textPrimary">Frontend & Web-App Dev</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-extrabold tracking-tight text-textPrimary leading-[1.1] mb-5 sm:mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-extrabold tracking-tight text-textPrimary leading-[1.1] mb-4 sm:mb-6">
             Engineering Real-Time,{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accentPrimary via-[#3AAFA9] to-[#7B61FF]">
               Liquid Glass
@@ -137,12 +137,12 @@ export default function Hero() {
             Web Applications.
           </h1>
 
-          <p className="text-sm sm:text-base md:text-base lg:text-lg xl:text-xl text-textSecondary font-normal leading-relaxed mb-7 sm:mb-8 max-w-2xl">
+          <p className="text-sm sm:text-base md:text-base lg:text-lg xl:text-xl text-textSecondary font-normal leading-relaxed mb-6 sm:mb-8 max-w-2xl">
             Architecting production-grade, high-throughput digital experiences with sub-millisecond responsiveness, Apple HIG precision, and robust frontend distributed ecosystems.
           </p>
 
           {/* Action CTAs */}
-          <div className="flex flex-wrap gap-3.5 sm:gap-4 items-center w-full sm:w-auto">
+          <div className="flex flex-wrap gap-3 sm:gap-4 items-center w-full sm:w-auto">
             <a
               href="#projects"
               className="group px-6 sm:px-7 py-3 sm:py-3.5 rounded-2xl bg-gradient-to-r from-accentPrimary to-[#258c85] text-white font-semibold shadow-[0_6px_20px_rgba(45,168,160,0.35)] hover:shadow-[0_10px_25px_rgba(45,168,160,0.45)] hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 text-sm sm:text-base flex-1 sm:flex-none text-center"
@@ -160,7 +160,7 @@ export default function Hero() {
           </div>
 
           {/* Mobile-Friendly Horizontal Tech Stack Badges */}
-          <div className="flex md:hidden flex-wrap items-center gap-2 mt-6 pt-4 border-t border-borderLight/60 w-full">
+          <div className="flex md:hidden flex-wrap items-center gap-2 mt-5 pt-3 border-t border-borderLight/60 w-full">
             {['React 19', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vite'].map((tech) => (
               <span
                 key={tech}
@@ -172,19 +172,19 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Avatar Column (Optimized for Mobile, Tablet, & Desktop) */}
+        {/* Right Avatar Column (Significantly Enlarged for Mobile & Tablet) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="md:col-span-5 relative flex justify-center md:justify-end items-end w-full h-[45vh] sm:h-[55vh] md:h-[60vh] lg:h-[calc(100vh-106px)] self-end"
+          className="md:col-span-5 relative flex justify-center md:justify-end items-end w-full h-[65vh] sm:h-[72vh] min-h-[440px] sm:min-h-[520px] md:h-[65vh] lg:h-[calc(100vh-106px)] self-end mt-2 md:mt-0"
         >
-          {/* Avatar Image (Natural aspect ratio, uncropped, grounded to bottom edge) */}
+          {/* Avatar Image (Bold, prominent presence on mobile with natural aspect ratio grounded to bottom) */}
           <div className="relative flex justify-center md:justify-end items-end w-full h-full">
             <img
               src="/assets/hero-avatar.png"
               alt="Ahmed Elazap - Full Body Portrait"
-              className="h-full max-h-[45vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[calc(100vh-106px)] w-auto max-w-full object-contain object-bottom md:object-right-bottom drop-shadow-[0_15px_35px_rgba(0,0,0,0.14)] transition-transform duration-500 hover:scale-[1.01]"
+              className="h-full max-h-[65vh] sm:max-h-[72vh] min-h-[420px] sm:min-h-[500px] md:max-h-[65vh] lg:max-h-[calc(100vh-106px)] w-auto max-w-none object-contain object-bottom md:object-right-bottom drop-shadow-[0_15px_35px_rgba(0,0,0,0.14)] transition-transform duration-500 hover:scale-[1.01]"
               onError={(e) => {
                 e.target.style.display = 'none';
               }}
