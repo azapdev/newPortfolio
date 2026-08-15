@@ -14,7 +14,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed w-full top-0 z-50 bg-white/70 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/60 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all">
+    <nav className="fixed w-full top-0 z-50 bg-white/70 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/60 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all">
       <div className="w-full px-6 sm:px-10 lg:px-16 h-20 flex items-center justify-between">
         
         {/* Left: Navigation Links */}
@@ -40,34 +40,27 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Center: Accented Liquid Glass Logo */}
+        {/* Center: Free-Form Accented Logo (No Rigid Box) */}
         <div className="flex items-center justify-center">
           <Link
             to="/"
-            className="group relative flex items-center gap-3 p-1.5 pr-4 rounded-full bg-white/80 backdrop-blur-xl border border-white/80 shadow-[0_2px_12px_rgba(45,168,160,0.15)] hover:shadow-[0_4px_20px_rgba(45,168,160,0.3)] transition-all duration-300 hover:scale-[1.03]"
+            className="group flex items-center gap-3.5 py-1 px-3 rounded-full hover:bg-white/50 transition-all duration-300"
             aria-label="Ahmed Elazap Home"
           >
-            {/* Accented Logo Ring */}
-            <div className="relative w-11 h-11 rounded-full p-0.5 bg-gradient-to-tr from-accentPrimary via-[#3AAFA9] to-[#7B61FF] shadow-sm flex items-center justify-center overflow-hidden">
-              <img
-                src="/assets/logo.webp"
-                alt="Ahmed Elazap Logo"
-                className="w-full h-full object-cover rounded-full bg-white transition-transform duration-300 group-hover:scale-110"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'flex';
-                }}
-              />
-              <span className="hidden w-full h-full items-center justify-center font-heading font-extrabold text-white text-lg bg-accentPrimary">
-                AE
-              </span>
-            </div>
+            <img
+              src="/assets/color-replaced.webp"
+              alt="Ahmed Elazap Logo"
+              className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(45,168,160,0.3)]"
+              onError={(e) => {
+                e.target.src = '/assets/logo.webp';
+              }}
+            />
             <div className="flex flex-col text-left">
-              <span className="font-heading font-bold text-sm text-textPrimary leading-tight tracking-tight">
+              <span className="font-heading font-extrabold text-base text-textPrimary leading-tight tracking-tight group-hover:text-accentPrimary transition-colors">
                 Ahmed Elazap
               </span>
               <span className="text-[10px] font-semibold text-accentPrimary uppercase tracking-wider">
-                Front-End Dev
+                Front-End & Web-App Dev
               </span>
             </div>
           </Link>
