@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen w-full flex items-center justify-between pl-6 sm:pl-10 lg:pl-16 pr-0 pt-24 pb-0 relative overflow-hidden bg-bgMain"
+      className="min-h-screen w-full flex items-center justify-between pl-6 sm:pl-10 lg:pl-16 pr-0 pt-[106px] pb-0 relative overflow-hidden bg-bgMain"
     >
       {/* Interactive Constellation / Particle Canvas Background */}
       <ParticleCanvas />
@@ -20,17 +20,17 @@ export default function Hero() {
       </div>
 
       {/* Main Fluid Hero Content Container */}
-      <div className="w-full relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-4 items-center min-h-[calc(100vh-6rem)]">
+      <div className="w-full relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-4 items-center min-h-[calc(100vh-106px)]">
         
         {/* Left Side: Typography & Copy */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-7 flex flex-col items-start text-left pr-6 sm:pr-10 py-12"
+          className="lg:col-span-7 flex flex-col items-start text-left pr-6 sm:pr-10 py-10"
         >
           {/* Apple HIG-style Liquid Pill Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/80 backdrop-blur-xl border border-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.04)] mb-6 hover:shadow-md transition-all">
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.04)] mb-6 hover:shadow-md transition-all">
             <span className="flex h-2 w-2 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accentPrimary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accentPrimary"></span>
@@ -78,7 +78,7 @@ export default function Hero() {
             {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vite', 'Framer Motion'].map((tech) => (
               <span
                 key={tech}
-                className="text-xs font-medium px-3 py-1 rounded-lg bg-white/70 backdrop-blur-md border border-white/80 text-textPrimary shadow-[0_1px_4px_rgba(0,0,0,0.02)]"
+                className="text-xs font-medium px-3 py-1 rounded-xl bg-white/70 backdrop-blur-md border border-white/80 text-textPrimary shadow-[0_1px_4px_rgba(0,0,0,0.02)]"
               >
                 {tech}
               </span>
@@ -86,19 +86,19 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Side: Full Screen-Height Avatar Sticking to Right and Bottom Edge */}
+        {/* Right Side: Full Height Avatar Starting Exactly 10px Below Navbar */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-5 relative flex justify-end items-end w-full h-[65vh] lg:h-[calc(100vh-6rem)] self-end"
+          className="lg:col-span-5 relative flex justify-end items-end w-full h-[65vh] lg:h-[calc(100vh-106px)] self-end"
         >
-          {/* Avatar Image (Takes full height below navbar, sticking to bottom & right border) */}
+          {/* Avatar Image (Exact 10px gap below navbar, full height to bottom edge, zero underlap) */}
           <div className="relative flex justify-end items-end w-full h-full">
             <img
               src="/assets/hero-avatar.png"
               alt="Ahmed Elazap - Full Body Portrait"
-              className="h-full w-auto max-w-full object-contain object-right-bottom drop-shadow-[0_15px_35px_rgba(0,0,0,0.14)] transition-transform duration-500 hover:scale-[1.01]"
+              className="h-full max-h-[calc(100vh-106px)] w-auto max-w-full object-contain object-right-bottom drop-shadow-[0_15px_35px_rgba(0,0,0,0.14)] transition-transform duration-500 hover:scale-[1.01]"
               onError={(e) => {
                 e.target.style.display = 'none';
               }}
@@ -109,7 +109,7 @@ export default function Hero() {
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="absolute top-12 left-0 sm:left-4 px-4 py-2.5 rounded-2xl bg-white/85 backdrop-blur-xl border border-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex items-center gap-2.5 z-20 hover:scale-105 transition-transform"
+              className="absolute top-8 left-0 sm:left-4 px-4 py-2.5 rounded-2xl bg-white/85 backdrop-blur-xl border border-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex items-center gap-2.5 z-20 hover:scale-105 transition-transform"
             >
               <div className="p-1.5 rounded-xl bg-accentPrimary/15 text-accentPrimary">
                 <Code2 size={18} />

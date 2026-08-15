@@ -17,24 +17,28 @@ export default function Navbar() {
     <nav className="fixed w-full top-0 z-50 bg-white/75 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/60 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-all">
       <div className="w-full px-6 sm:px-10 lg:px-16 h-24 flex items-center justify-between">
         
-        {/* Left: Navigation Links */}
+        {/* Left: Navigation Links with Animated Underline Starting from Left */}
         <div className="hidden lg:flex items-center gap-8 flex-1 justify-start">
           {navLinks.map((link) => (
             link.isRoute ? (
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-sm font-medium text-textSecondary hover:text-accentPrimary transition-all duration-200 tracking-wide hover:-translate-y-0.5"
+                className="group relative py-1.5 text-sm font-semibold text-textSecondary hover:text-accentPrimary transition-colors duration-200 tracking-wide inline-flex flex-col"
               >
-                {link.name}
+                <span>{link.name}</span>
+                {/* Animated underline starting from left to full width */}
+                <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-accentPrimary rounded-full scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
               </Link>
             ) : (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-textSecondary hover:text-accentPrimary transition-all duration-200 tracking-wide hover:-translate-y-0.5"
+                className="group relative py-1.5 text-sm font-semibold text-textSecondary hover:text-accentPrimary transition-colors duration-200 tracking-wide inline-flex flex-col"
               >
-                {link.name}
+                <span>{link.name}</span>
+                {/* Animated underline starting from left to full width */}
+                <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-accentPrimary rounded-full scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
               </a>
             )
           ))}
@@ -44,7 +48,7 @@ export default function Navbar() {
         <div className="flex items-center justify-center">
           <Link
             to="/"
-            className="group flex items-center gap-4 py-1 px-3 rounded-full hover:bg-white/60 transition-all duration-300"
+            className="group flex items-center gap-4 py-1 px-3 rounded-2xl hover:bg-white/60 transition-all duration-300"
             aria-label="Ahmed Elazap Home"
           >
             <img
@@ -66,18 +70,18 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Right: Actions / Buttons */}
+        {/* Right: Action Buttons with 1rem (rounded-2xl) Corners */}
         <div className="hidden lg:flex items-center gap-4 flex-1 justify-end">
           <a
             href="/resume.pdf"
-            className="px-6 py-3 rounded-full text-sm font-semibold text-textPrimary bg-white/80 hover:bg-white border border-white/90 shadow-sm hover:shadow-md hover:border-accentPrimary/40 transition-all duration-200 flex items-center gap-1.5"
+            className="px-6 py-3 rounded-2xl text-sm font-semibold text-textPrimary bg-white/80 hover:bg-white border border-white/90 shadow-sm hover:shadow-md hover:border-accentPrimary/40 hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-1.5"
           >
             Resume
             <ArrowUpRight size={15} className="text-textSecondary" />
           </a>
           <a
             href="/#contact"
-            className="px-6 py-3 rounded-full text-sm font-bold text-white bg-gradient-to-r from-accentPrimary via-[#3AAFA9] to-[#258c85] hover:opacity-95 shadow-[0_4px_16px_rgba(45,168,160,0.4)] hover:shadow-[0_8px_24px_rgba(45,168,160,0.5)] hover:-translate-y-0.5 transition-all duration-200"
+            className="px-6 py-3 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-accentPrimary via-[#3AAFA9] to-[#258c85] hover:opacity-95 shadow-[0_4px_16px_rgba(45,168,160,0.4)] hover:shadow-[0_8px_24px_rgba(45,168,160,0.5)] hover:-translate-y-0.5 transition-all duration-200"
           >
             Contact Me
           </a>
@@ -104,18 +108,20 @@ export default function Navbar() {
                 key={link.name}
                 to={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-textPrimary hover:text-accentPrimary py-1"
+                className="group relative py-1 text-base font-semibold text-textPrimary hover:text-accentPrimary inline-flex flex-col"
               >
-                {link.name}
+                <span>{link.name}</span>
+                <span className="w-12 h-[2px] bg-accentPrimary scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-200"></span>
               </Link>
             ) : (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-textPrimary hover:text-accentPrimary py-1"
+                className="group relative py-1 text-base font-semibold text-textPrimary hover:text-accentPrimary inline-flex flex-col"
               >
-                {link.name}
+                <span>{link.name}</span>
+                <span className="w-12 h-[2px] bg-accentPrimary scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-200"></span>
               </a>
             )
           ))}
@@ -123,14 +129,14 @@ export default function Navbar() {
             <a
               href="/resume.pdf"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center py-3 rounded-xl border border-borderLight text-textPrimary font-semibold"
+              className="w-full text-center py-3 rounded-2xl border border-borderLight text-textPrimary font-semibold"
             >
               Resume
             </a>
             <a
               href="/#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center py-3 rounded-xl bg-accentPrimary text-white font-bold shadow-md"
+              className="w-full text-center py-3 rounded-2xl bg-accentPrimary text-white font-bold shadow-md"
             >
               Contact Me
             </a>
