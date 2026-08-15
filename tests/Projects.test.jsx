@@ -6,16 +6,12 @@ describe('Projects Component', () => {
   it('renders projects section with heading and cards', () => {
     const { getByText, getAllByText, container } = render(<Projects />);
     expect(container.querySelector('#projects')).toBeDefined();
-    expect(getByText("What I've Built")).toBeDefined();
-    expect(getByText("DentalSync App")).toBeDefined();
-    expect(getByText("Study Timer")).toBeDefined();
-    expect(getByText("A clinic management mobile app for tracking patient records.")).toBeDefined();
-    expect(getByText("Pomodoro-style app for medical students with custom intervals.")).toBeDefined();
-    expect(getByText("Kotlin")).toBeDefined();
-    expect(getByText("Firebase")).toBeDefined();
-    expect(getByText("Flutter")).toBeDefined();
-    expect(getByText("Dart")).toBeDefined();
-    expect(getAllByText(/Live Demo/i).length).toBe(2);
-    expect(getAllByText(/GitHub/i).length).toBe(2);
+    expect(getByText("Selected Web-Apps & Projects")).toBeDefined();
+    expect(getByText("LiquidGlass Studio Platform")).toBeDefined();
+    expect(getByText("Pulse Commerce Web-App")).toBeDefined();
+    expect(getByText("Nexus AI Workflow Studio")).toBeDefined();
+    expect(getByText("Aura Glass UI Design System")).toBeDefined();
+    expect(getAllByText(/Launch Application/i).length).toBe(4);
+    expect(getAllByText(/Source Code/i).length).toBe(4);
   });
 });

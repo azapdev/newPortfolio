@@ -3,37 +3,36 @@ import { render, fireEvent } from '@testing-library/react';
 import Skills from '../src/components/Skills';
 
 describe('Skills Component', () => {
-  it('renders tech and dental skill tabs', () => {
+  it('renders skill categories and items', () => {
     const { getByText, container } = render(<Skills />);
     expect(container.querySelector('#skills')).toBeDefined();
-    expect(getByText(/Tech Skills/i)).toBeDefined();
-    expect(getByText(/Dental Focus/i)).toBeDefined();
-    expect(getByText('Kotlin')).toBeDefined();
-    expect(getByText('Flutter')).toBeDefined();
+    expect(getByText(/Frontend Core/i)).toBeDefined();
+    expect(getByText(/Web-App & State/i)).toBeDefined();
+    expect(getByText(/Tooling & Design/i)).toBeDefined();
+    expect(getByText('React.js')).toBeDefined();
+    expect(getByText('TypeScript')).toBeDefined();
   });
 
-  it('switches between tech and dental tabs', async () => {
+  it('switches between skill tabs', async () => {
     const { getByText, findByText } = render(<Skills />);
     
-    // Initially tech skills are visible
-    expect(getByText('Kotlin')).toBeDefined();
+    // Initially frontend skills are visible
+    expect(getByText('React.js')).toBeDefined();
 
-    // Click Dental tab
-    const dentalTab = getByText(/Dental Focus/i);
-    fireEvent.click(dentalTab);
+    // Click Web-App tab
+    const webAppTab = getByText(/Web-App & State/i);
+    fireEvent.click(webAppTab);
 
-    // Dental skills should be visible
-    expect(await findByText('Oral Pathology')).toBeDefined();
-    expect(await findByText('Restorative Dentistry')).toBeDefined();
-    expect(await findByText('Radiography')).toBeDefined();
-    expect(await findByText('Patient Care')).toBeDefined();
+    // Web-App skills should be visible
+    expect(await findByText('State Management')).toBeDefined();
+    expect(await findByText('Framer Motion')).toBeDefined();
 
-    // Click Tech tab
-    const techTab = getByText(/Tech Skills/i);
-    fireEvent.click(techTab);
+    // Click Tooling tab
+    const toolsTab = getByText(/Tooling & Design/i);
+    fireEvent.click(toolsTab);
 
-    // Tech skills should be visible again
-    expect(await findByText('Kotlin')).toBeDefined();
-    expect(await findByText('Android Studio')).toBeDefined();
+    // Tooling skills should be visible
+    expect(await findByText('Git & GitHub')).toBeDefined();
+    expect(await findByText('Vercel Deployment')).toBeDefined();
   });
 });

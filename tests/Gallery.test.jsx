@@ -10,6 +10,6 @@ describe('Gallery Page', () => {
         <Gallery />
       </BrowserRouter>
     );
-    expect(getByText('Visual Log')).toBeDefined();
+    expect(getByText('Design & Web-App Gallery')).toBeDefined();
   });
 });

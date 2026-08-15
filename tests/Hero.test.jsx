@@ -6,21 +6,16 @@ describe('Hero Component', () => {
   it('renders hero content', () => {
     const { getByText, getAllByText, getByRole, container } = render(<Hero />);
     expect(container.querySelector('#home')).toBeDefined();
-    expect(getByText(/👋 Hi, I'm Mohamed/i)).toBeDefined();
-    expect(getAllByText(/Dental Student/i).length).toBeGreaterThan(0);
-    expect(getAllByText(/App Developer/i).length).toBeGreaterThan(0);
+    expect(getByText(/Ahmed Elazap • Front-End & Web-App Developer/i)).toBeDefined();
+    expect(getAllByText(/Liquid Glass/i).length).toBeGreaterThan(0);
     expect(getByRole('heading', { level: 1 })).toBeDefined();
     
-    const workLink = getByText('View My Work');
+    const workLink = getByText('Explore Projects');
     expect(workLink).toBeDefined();
     expect(workLink.getAttribute('href')).toBe('#projects');
 
-    const resumeLink = getByText('Download Resume');
-    expect(resumeLink).toBeDefined();
-    expect(resumeLink.getAttribute('href')).toBe('/resume.pdf');
-
-    expect(
-      getByText((_, el) => el?.tagName?.toLowerCase() === 'h1' && el?.textContent?.replace(/\s+/g, ' ').includes('Dental Student & App Developer'))
-    ).toBeDefined();
+    const contactLink = getByText('Get In Touch');
+    expect(contactLink).toBeDefined();
+    expect(contactLink.getAttribute('href')).toBe('#contact');
   });
 });

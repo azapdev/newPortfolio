@@ -1,7 +1,7 @@
 import React from 'react';
-import { ExternalLink } from 'lucide-react';
+import { Sparkles, ArrowUpRight } from 'lucide-react';
 
-function Github({ size = 16, className = "" }) {
+function GithubIcon({ size = 18, className = "" }) {
   return (
     <svg
       width={size}
@@ -23,49 +23,140 @@ function Github({ size = 16, className = "" }) {
 export default function Projects() {
   const projects = [
     {
-      title: "DentalSync App",
-      desc: "A clinic management mobile app for tracking patient records.",
-      tags: ["Kotlin", "Firebase"],
-      links: { demo: "#", github: "#" }
+      title: "LiquidGlass Studio Platform",
+      desc: "An Apple HIG-inspired web app platform for designing and managing real-time translucent dashboards, analytics widgets, and interactive data visualizations.",
+      tags: ["React 19", "Tailwind CSS", "Framer Motion", "Vite"],
+      gradient: "from-[#2DA8A0]/20 via-[#3AAFA9]/10 to-[#7B61FF]/20",
+      accent: "#2DA8A0",
+      links: { demo: "https://azap-portfolio.vercel.app", github: "https://github.com/AhmedElazap" }
     },
     {
-      title: "Study Timer",
-      desc: "Pomodoro-style app for medical students with custom intervals.",
-      tags: ["Flutter", "Dart"],
-      links: { demo: "#", github: "#" }
+      title: "Pulse Commerce Web-App",
+      desc: "Full-scale modern e-commerce web application with real-time cart synchronization, optimistic UI updates, multi-filter catalog, and seamless checkout flows.",
+      tags: ["TypeScript", "Next.js", "Zustand", "Tailwind"],
+      gradient: "from-[#7B61FF]/20 via-[#FF8A65]/10 to-[#2DA8A0]/20",
+      accent: "#7B61FF",
+      links: { demo: "https://azap-portfolio.vercel.app", github: "https://github.com/AhmedElazap" }
+    },
+    {
+      title: "Nexus AI Workflow Studio",
+      desc: "High-productivity frontend web-app for prompt engineering, token usage analysis, interactive node graphs, and real-time streaming LLM responses.",
+      tags: ["React", "TypeScript", "REST APIs", "Tailwind"],
+      gradient: "from-[#FF8A65]/20 via-[#2DA8A0]/15 to-[#3AAFA9]/20",
+      accent: "#FF8A65",
+      links: { demo: "https://azap-portfolio.vercel.app", github: "https://github.com/AhmedElazap" }
+    },
+    {
+      title: "Aura Glass UI Design System",
+      desc: "Comprehensive open-source React component library crafted with Apple HIG principles, specular reflection tokens, and accessible WCAG 2.1 AAA standards.",
+      tags: ["React", "TypeScript", "Figma Tokens", "Tailwind"],
+      gradient: "from-[#4CAF7D]/20 via-[#2DA8A0]/15 to-[#7B61FF]/20",
+      accent: "#4CAF7D",
+      links: { demo: "https://azap-portfolio.vercel.app", github: "https://github.com/AhmedElazap" }
     }
   ];
 
   return (
-    <section id="projects" className="py-24 bg-bgAlt px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-16 text-textPrimary">What I've Built</h2>
+    <section id="projects" className="py-28 bg-bgAlt/60 relative overflow-hidden">
+      <div className="w-full px-6 sm:px-10 lg:px-16">
+        
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <span className="px-4 py-1.5 rounded-full bg-accentPrimary/10 text-accentPrimary font-semibold text-xs uppercase tracking-wider mb-3">
+            Featured Portfolio
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-textPrimary tracking-tight">
+            Selected Web-Apps & Projects
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-textSecondary max-w-2xl">
+            A curated showcase of production-ready web applications, interactive tools, and frontend systems designed for scale and impact.
+          </p>
+        </div>
+
+        {/* Fluid 2x2 Responsive Grid */}
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((proj, i) => (
-            <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-borderLight group hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-              <div className="h-48 bg-gray-200 w-full flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-500">
-                [Image Placeholder]
-              </div>
-              <div className="p-8">
-                <div className="flex gap-2 mb-4">
-                  {proj.tags.map((tag, j) => (
-                    <span key={j} className="text-xs font-semibold px-3 py-1 bg-accentPrimary/10 text-accentPrimary rounded-full">{tag}</span>
-                  ))}
+          {projects.map((proj) => (
+            <div
+              key={proj.title}
+              className="bg-white/85 backdrop-blur-2xl rounded-[2rem] overflow-hidden border border-white/90 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(45,168,160,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+            >
+              {/* Card Banner / Visual Preview */}
+              <div className={`h-56 sm:h-64 w-full bg-gradient-to-br ${proj.gradient} p-8 flex flex-col justify-between relative overflow-hidden border-b border-borderLight/40`}>
+                
+                {/* Background Glass Orbs */}
+                <div className="absolute -top-12 -right-12 w-40 h-40 bg-white/40 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+
+                <div className="flex items-center justify-between relative z-10">
+                  <div className="p-2.5 rounded-2xl bg-white/80 backdrop-blur-xl border border-white shadow-sm flex items-center gap-2">
+                    <Sparkles size={16} style={{ color: proj.accent }} />
+                    <span className="text-xs font-bold text-textPrimary">Production Build</span>
+                  </div>
+                  <div className="flex gap-2">
+                    {proj.tags.slice(0, 2).map((t) => (
+                      <span key={t} className="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-white/70 backdrop-blur-md text-textPrimary shadow-sm">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-2 text-textPrimary">{proj.title}</h3>
-                <p className="text-textSecondary mb-6">{proj.desc}</p>
-                <div className="flex gap-4">
-                  <a href={proj.links.demo} className="flex items-center gap-2 text-sm font-semibold text-textPrimary hover:text-accentPrimary transition-colors">
-                    <ExternalLink size={16} /> Live Demo
-                  </a>
-                  <a href={proj.links.github} className="flex items-center gap-2 text-sm font-semibold text-textPrimary hover:text-accentPrimary transition-colors">
-                    <Github size={16} /> GitHub
-                  </a>
+
+                <div className="relative z-10">
+                  <span className="text-xs font-mono uppercase tracking-widest text-textSecondary">Web Application</span>
+                  <h4 className="text-2xl sm:text-3xl font-heading font-extrabold text-textPrimary mt-1">
+                    {proj.title}
+                  </h4>
                 </div>
               </div>
+
+              {/* Card Body */}
+              <div className="p-8 sm:p-10 flex flex-col justify-between flex-1">
+                <div>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {proj.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-semibold px-3 py-1 bg-accentPrimary/10 text-accentPrimary rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <p className="text-textSecondary text-sm sm:text-base leading-relaxed mb-8">
+                    {proj.desc}
+                  </p>
+                </div>
+
+                {/* Actions */}
+                <div className="flex items-center justify-between pt-6 border-t border-borderLight/60">
+                  <a
+                    href={proj.links.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-accentPrimary hover:text-[#258c85] transition-colors"
+                  >
+                    <span>Launch Application</span>
+                    <ArrowUpRight size={16} />
+                  </a>
+
+                  <a
+                    href={proj.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-textSecondary hover:text-textPrimary transition-colors"
+                    aria-label={`View ${proj.title} on GitHub`}
+                  >
+                    <GithubIcon size={18} />
+                    <span>Source Code</span>
+                  </a>
+                </div>
+
+              </div>
+
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
