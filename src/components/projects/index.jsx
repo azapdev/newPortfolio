@@ -1,5 +1,4 @@
-import React from 'react';
-import { Sparkles, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Sparkles } from "lucide-react";
 
 /**
  * Inline SVG GitHub Icon component to prevent third-party bundle resolution issues
@@ -34,31 +33,28 @@ export default function Projects() {
   // Live project portfolio catalog
   const projects = [
     {
-      title: "L'Épicurieux Restaurant & Bar",
-      desc: "Exploring authentic French culinary flavors with a modern digital dining experience, interactive menu spotlights, and responsive booking flows.",
-      tags: ["React", "Tailwind CSS", "Cloudflare Workers", "Framer Motion"],
-      img: "/img/works/website.webp",
-      gradient: "from-[#2DA8A0]/20 via-[#3AAFA9]/10 to-[#7B61FF]/20",
-      accent: "#2DA8A0",
-      links: { demo: "https://lepicurieux.azapdev.workers.dev/", github: "https://github.com/AhmedElazap" }
-    },
-    {
       title: "The Mighty Spice Co.",
       desc: "Experience the bold flavors of Indian street food and spices, served fast and fresh with dynamic product carousels and seamless order flows.",
-      tags: ["TypeScript", "Next.js", "Tailwind CSS", "Zustand"],
+      tags: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand"],
       img: "/img/works/themightyspiceco.webp",
       gradient: "from-[#FF8A65]/20 via-[#2DA8A0]/10 to-[#7B61FF]/20",
       accent: "#FF8A65",
-      links: { demo: "https://themightyspiceco.azapdev.workers.dev/", github: "https://github.com/AhmedElazap" }
+      links: {
+        demo: "https://themightyspiceco.azapdev.workers.dev/",
+        github: "https://github.com/azapdev/themightyspiceco",
+      },
     },
     {
       title: "Porty Hotel & Stay Platform",
       desc: "Discover the easiest way to book your perfect stay with effortless reservation flows, budget filters, exclusive deals, and verified reviews.",
-      tags: ["React 19", "Vite", "Tailwind CSS", "REST APIs"],
+      tags: ["React", "Vite", "Tailwind CSS", "REST APIs"],
       img: "/img/works/porty.webp",
       gradient: "from-[#7B61FF]/20 via-[#3AAFA9]/10 to-[#2DA8A0]/20",
       accent: "#7B61FF",
-      links: { demo: "https://porty.azapdev.workers.dev/", github: "https://github.com/AhmedElazap" }
+      links: {
+        demo: "https://porty.azapdev.workers.dev/",
+        github: "https://github.com/azapdev/Porty",
+      },
     },
     {
       title: "Ashely Digital Agency",
@@ -67,21 +63,18 @@ export default function Projects() {
       img: "/img/works/ashely.webp",
       gradient: "from-[#3AAFA9]/20 via-[#2DA8A0]/10 to-[#7B61FF]/20",
       accent: "#3AAFA9",
-      links: { demo: "https://ashely.azapdev.workers.dev/", github: "https://github.com/AhmedElazap" }
+      links: {
+        demo: "https://ashely.azapdev.workers.dev/",
+        github: "https://github.com/azapdev/Ashely",
+      },
     },
-    {
-      title: "PulseFit Gym & Wellness",
-      desc: "Modern and responsive fitness web app designed to inspire workouts, member subscriptions, trainer directories, and interactive goal tracking.",
-      tags: ["React", "Framer Motion", "Tailwind CSS", "Vite"],
-      img: "/img/works/plusfit.webp",
-      gradient: "from-[#4CAF7D]/20 via-[#2DA8A0]/10 to-[#7B61FF]/20",
-      accent: "#4CAF7D",
-      links: { demo: "https://pulsefit.azapdev.workers.dev/", github: "https://github.com/AhmedElazap" }
-    }
   ];
 
   return (
-    <section id="projects" className="py-28 bg-bgAlt/60 relative overflow-hidden">
+    <section
+      id="projects"
+      className="py-28 bg-bgAlt/60 relative overflow-hidden"
+    >
       <div className="w-full px-6 sm:px-10 lg:px-16">
         
         {/* Section Header */}
@@ -93,7 +86,8 @@ export default function Projects() {
             Selected Web-Apps & Projects
           </h2>
           <p className="mt-4 text-base sm:text-lg text-textSecondary max-w-2xl">
-            A curated showcase of live production web applications, client solutions, and frontend systems imported directly from my portfolio.
+            A curated showcase of live production web applications, client
+            solutions, and frontend systems imported directly from my portfolio.
           </p>
         </div>
 
@@ -111,10 +105,10 @@ export default function Projects() {
                   alt={proj.title}
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   onError={(e) => {
-                    e.target.src = '/assets/works/website.webp';
+                    e.target.src = "/assets/works/website.webp";
                   }}
                 />
-                
+
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
 
@@ -122,7 +116,9 @@ export default function Projects() {
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
                   <div className="p-2 rounded-xl bg-white/90 backdrop-blur-xl border border-white shadow-sm flex items-center gap-1.5">
                     <Sparkles size={14} style={{ color: proj.accent }} />
-                    <span className="text-[11px] font-bold text-textPrimary">Live Work</span>
+                    <span className="text-[11px] font-bold text-textPrimary">
+                      Live Work
+                    </span>
                   </div>
                   <span className="text-[10px] font-semibold px-2.5 py-1 rounded-lg bg-white/85 backdrop-blur-md text-textPrimary shadow-sm">
                     {proj.tags[0]}
@@ -181,13 +177,10 @@ export default function Projects() {
                     <span>Source</span>
                   </a>
                 </div>
-
               </div>
-
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -8,12 +8,15 @@ import { Layers, Zap, ShieldCheck, HeartHandshake } from 'lucide-react';
  * - Core philosophy highlights (Human-Centered Design, Modern Web Architecture, Liquid Motion)
  * - 2x2 Interactive Stats Matrix showcasing experience, shipped apps, and reliability
  */
+
+
+
 export default function About() {
   // Quantifiable performance and engineering metrics
   const stats = [
-    { label: "Years Experience", value: "3+", icon: Zap, color: "text-accentPrimary" },
-    { label: "Web Apps Shipped", value: "20+", icon: Layers, color: "text-[#7B61FF]" },
-    { label: "Design Systems", value: "15+", icon: ShieldCheck, color: "text-accentSecondary" },
+    { label: "Years Experience", value: "1+", icon: Zap, color: "text-accentPrimary" },
+    { label: "Web Apps Shipped", value: "5+", icon: Layers, color: "text-[#7B61FF]" },
+    { label: "Design Systems", value: "8+", icon: ShieldCheck, color: "text-accentSecondary" },
     { label: "Code Reliability", value: "100%", icon: HeartHandshake, color: "text-success" }
   ];
 

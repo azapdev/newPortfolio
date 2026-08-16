@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
  * - Seamless external links opening directly to live deployments
  */
 export default function Gallery() {
+
   // Live gallery items imported from portfolio assets
   const galleryItems = [
     {
@@ -55,6 +56,7 @@ export default function Gallery() {
         
         {/* Navigation & Header */}
         <div className="mb-12 flex flex-col items-start">
+
           {/* Return Home Link */}
           <Link
             to="/"
@@ -76,6 +78,7 @@ export default function Gallery() {
               Visual exploration of live production websites and web application interfaces created by Ahmed Elazap.
             </p>
           </div>
+
         </div>
 
         {/* Fluid Responsive Gallery Grid */}
