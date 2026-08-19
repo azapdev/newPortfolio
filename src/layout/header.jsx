@@ -119,7 +119,7 @@ export default function Header() {
         {/* Right Column: Actions */}
         <div className="hidden lg:flex items-center gap-5 flex-1 justify-end">
           <a
-            href="/resume.pdf"
+            href="/CV/AhmedElazap - Frontend Developer.pdf"
             className="text-sm font-bold text-textSecondary hover:text-accentPrimary transition-colors duration-200 flex items-center gap-1 py-2 px-2"
           >
             <span>CV</span>
@@ -187,7 +187,7 @@ export default function Header() {
                 className="pt-4 border-t border-borderLight flex flex-col gap-3"
               >
                 <a
-                  href="/resume.pdf"
+                  href="/CV/AhmedElazap - Frontend Developer.pdf"
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full text-center py-3 text-textSecondary hover:text-accentPrimary font-bold transition-colors"
                 >
