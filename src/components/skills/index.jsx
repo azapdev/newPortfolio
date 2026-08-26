@@ -157,7 +157,7 @@ export default function Skills() {
         </div>
 
         {/* Apple-style Segmented Control Liquid Tab Switcher */}
-        <div className="flex justify-center mb-14">
+        <div className="flex justify-center mb-14 overflow-scroll">
           <div className="p-1.5 rounded-2xl bg-bgAlt/80 backdrop-blur-xl border border-borderLight/80 shadow-sm inline-flex gap-2">
             {categories.map((cat) => {
               const Icon = cat.icon;
@@ -184,7 +184,7 @@ export default function Skills() {
                       }}
                     />
                   )}
-                  <span className="relative z-10 flex items-center gap-2">
+                  <span className="relative z-10 flex items-center gap-2 line-clamp-1 ">
                     <Icon
                       size={16}
                       className={
