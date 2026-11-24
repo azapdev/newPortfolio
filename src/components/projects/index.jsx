@@ -33,18 +33,6 @@ export default function Projects() {
   // Live project portfolio catalog
   const projects = [
     {
-      title: "The Mighty Spice Co.",
-      desc: "Experience the bold flavors of Indian street food and spices, served fast and fresh with dynamic product carousels and seamless order flows.",
-      tags: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand"],
-      img: "/img/works/themightyspiceco.webp",
-      gradient: "from-[#FF8A65]/20 via-[#2DA8A0]/10 to-[#7B61FF]/20",
-      accent: "#FF8A65",
-      links: {
-        demo: "https://themightyspiceco.azapdev.workers.dev/",
-        github: "https://github.com/azapdev/themightyspiceco",
-      },
-    },
-    {
       title: "Porty Hotel & Stay Platform",
       desc: "Discover the easiest way to book your perfect stay with effortless reservation flows, budget filters, exclusive deals, and verified reviews.",
       tags: ["React", "Vite", "Tailwind CSS", "REST APIs"],
