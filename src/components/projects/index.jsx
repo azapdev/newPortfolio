@@ -68,6 +68,24 @@ export default function Projects() {
         github: "https://github.com/azapdev/Ashely",
       },
     },
+    {
+      title: "VESPER — Creative Studio",
+      desc: "A creative digital studio crafting distinctive brands, immersive digital experiences, and cinematic visuals for ambitious companies shaping the future. Blending creativity, technology, and storytelling to build what comes next.",
+      tags: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Creative Development",
+      ],
+      img: "/img/works/vesper.webp",
+      gradient: "from-[#7B61FF]/20 via-[#1C1C35]/20 to-[#3AAFA9]/20",
+      accent: "#7B61FF",
+      links: {
+        demo: "https://vesper.azapdev.workers.dev/",
+        github: "https://github.com/azapdev/vesper",
+      },
+    },
   ];
 
   return (
@@ -76,7 +94,6 @@ export default function Projects() {
       className="py-28 bg-bgAlt/60 relative overflow-hidden"
     >
       <div className="w-full px-6 sm:px-10 lg:px-16">
-        
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <span className="px-4 py-1.5 rounded-full bg-accentPrimary/10 text-accentPrimary font-semibold text-xs uppercase tracking-wider mb-3">

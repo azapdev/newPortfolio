@@ -1,6 +1,5 @@
-import React from 'react';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /**
  * Gallery Page Component
@@ -10,7 +9,6 @@ import { Link } from 'react-router-dom';
  * - Seamless external links opening directly to live deployments
  */
 export default function Gallery() {
-
   // Live gallery items imported from portfolio assets
   const galleryItems = [
     {
@@ -18,45 +16,61 @@ export default function Gallery() {
       category: "Culinary Web Platform",
       img: "/img/works/website.webp",
       link: "https://lepicurieux.azapdev.workers.dev/",
-      tag: "React & Cloudflare Workers"
+      tag: "React & Cloudflare Workers",
+    },
+    {
+      title: "VESPER — Creative Studio",
+      desc: "A creative digital studio crafting distinctive brands, immersive digital experiences, and cinematic visuals for ambitious companies shaping the future. Blending creativity, technology, and storytelling to build what comes next.",
+      tags: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Creative Development",
+      ],
+      img: "/img/works/vesper.webp",
+      gradient: "from-[#7B61FF]/20 via-[#1C1C35]/20 to-[#3AAFA9]/20",
+      accent: "#7B61FF",
+      links: {
+        demo: "https://vesper.azapdev.workers.dev/",
+        github: "https://github.com/azapdev/vesper",
+      },
     },
     {
       title: "The Mighty Spice Co.",
       category: "E-Commerce Experience",
       img: "/img/works/themightyspiceco.webp",
       link: "https://themightyspiceco.azapdev.workers.dev/",
-      tag: "Next.js & Zustand"
+      tag: "Next.js & Zustand",
     },
     {
       title: "Porty Hotel & Stay Platform",
       category: "Booking & Hospitality App",
       img: "/img/works/porty.webp",
       link: "https://porty.azapdev.workers.dev/",
-      tag: "React 19 & REST APIs"
+      tag: "React 19 & REST APIs",
     },
     {
       title: "Ashely Digital Agency",
       category: "Corporate Agency Platform",
       img: "/img/works/ashely.webp",
       link: "https://ashely.azapdev.workers.dev/",
-      tag: "React & Apple HIG"
+      tag: "React & Apple HIG",
     },
     {
       title: "PulseFit Gym & Wellness",
       category: "Fitness & Training Web-App",
       img: "/img/works/plusfit.webp",
       link: "https://pulsefit.azapdev.workers.dev/",
-      tag: "Framer Motion & Vite"
-    }
+      tag: "Framer Motion & Vite",
+    },
   ];
 
   return (
     <div className="pt-28 pb-24 min-h-screen bg-bgMain">
       <div className="w-full px-6 sm:px-10 lg:px-16">
-        
         {/* Navigation & Header */}
         <div className="mb-12 flex flex-col items-start">
-
           {/* Return Home Link */}
           <Link
             to="/"
@@ -75,10 +89,10 @@ export default function Gallery() {
               Design & Web-App Gallery
             </h1>
             <p className="mt-4 text-base sm:text-lg text-textSecondary max-w-2xl">
-              Visual exploration of live production websites and web application interfaces created by Ahmed Elazap.
+              Visual exploration of live production websites and web application
+              interfaces created by Ahmed Elazap.
             </p>
           </div>
-
         </div>
 
         {/* Fluid Responsive Gallery Grid */}
@@ -98,10 +112,10 @@ export default function Gallery() {
                   alt={item.title}
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   onError={(e) => {
-                    e.target.src = '/assets/works/website.webp';
+                    e.target.src = "/assets/works/website.webp";
                   }}
                 />
-                
+
                 {/* Visual dark contrast gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent"></div>
 
@@ -117,7 +131,9 @@ export default function Gallery() {
 
                 {/* Bottom Title & Category Overlay */}
                 <div className="absolute bottom-4 left-4 right-4 z-10">
-                  <p className="text-[11px] font-mono uppercase tracking-widest text-white/80">{item.category}</p>
+                  <p className="text-[11px] font-mono uppercase tracking-widest text-white/80">
+                    {item.category}
+                  </p>
                   <h4 className="text-xl font-heading font-extrabold text-white mt-0.5 drop-shadow">
                     {item.title}
                   </h4>
@@ -126,7 +142,9 @@ export default function Gallery() {
 
               {/* Caption Footer */}
               <div className="p-5 bg-white/90 flex items-center justify-between border-t border-borderLight/60">
-                <span className="text-xs font-medium text-textSecondary">Crafted by Ahmed Elazap</span>
+                <span className="text-xs font-medium text-textSecondary">
+                  Crafted by Ahmed Elazap
+                </span>
                 <span className="text-xs font-bold text-accentPrimary group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
                   Visit Live <span>→</span>
                 </span>
@@ -134,7 +152,6 @@ export default function Gallery() {
             </a>
           ))}
         </div>
-
       </div>
     </div>
   );
